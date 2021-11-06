@@ -1,0 +1,48 @@
+.reviews-sec {
+  padding-top: 70px;
+  padding-bottom: 30px;
+
+  &__top  {
+    margin-bottom: 50px;
+  }
+}
+
+.reviews-sec__box {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 20px;
+  padding-bottom: 30px;
+}
+
+.reviews-sec__item a {
+  display: flex;
+}
+
+.lg-backdrop {
+  background: rgba(62, 62, 62, 0.8);
+}
+
+.reviews-sec__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.reviews-sec__more {
+  height: 50px;
+  max-width: 241px;
+  width: 100%;
+  font-family: $font-family2;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: $text--w;
+}
+
+.reviews-sec__reit {
+  display: flex;
+  align-items: center;
+  grid-gap: 20px;
+}

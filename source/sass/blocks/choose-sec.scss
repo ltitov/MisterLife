@@ -1,0 +1,152 @@
+.choose-us {
+  padding-top: 70px;
+
+  &__top {
+    margin-bottom: 50px;
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 90px;
+  }
+
+  &__item {
+    position: relative;
+    padding-top: 22px;
+  }
+
+  &__wrapper {
+    padding: 36px 42px 24px;
+    background: $color--d;
+    border-radius: 3px;
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: $text--b;
+    position: relative;
+
+    p {
+      width: 62%;
+    }
+
+    &::before {
+      content: '';
+      width: 5px;
+      height: 35px;
+      position: absolute;
+      top: 40px;
+      left: 24px;
+      background: #09D743;
+      border-radius: 1px;
+    }
+  }
+
+  &__title {
+    padding: 0 24px;
+    font-family: $font-family2;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: $text--b;
+    margin-bottom: 13px;
+  }
+
+  &__image {
+    position: absolute;
+    right: 10px;
+    bottom: 4%;
+  }
+}
+
+.download-box {
+  padding: 130px 45px 75px;
+  background-image: url(../img/download-sec/bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
+}
+
+
+.download-descr {
+  max-width: 540px;
+  width: 100%;
+
+  &__body {
+    padding: 30px 35px;
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 3px;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    font-family: $font-family2;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 34px;
+    color: $text--b;
+    max-width: 400px;
+    margin-bottom: 10px;
+
+    span {
+      font-weight: 800;
+    }
+  }
+
+  &__list {
+    max-width: 400px;
+    display: grid;
+    grid-gap: 30px;
+  }
+
+  &__item {
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: $text--b;
+
+    span {
+      font-weight: 700;
+    }
+  }
+}
+
+
+.cert-list {
+  display: flex;
+  justify-content: center;
+  grid-gap: 10px;
+}
+
+.download-start {
+  padding: 20px 22px 30px;
+  max-width: 280px;
+  width: 100%;
+  background: $text--w;
+  border-radius: 3px;
+  display: grid;
+  grid-gap: 15px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.download-box__man {
+  position: absolute;
+  max-width: 445px;
+  bottom: 0;
+  right: 20%;
+}

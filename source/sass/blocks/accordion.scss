@@ -1,0 +1,48 @@
+.accordion-list {
+  display: grid;
+  grid-gap: 20px;
+
+  &__title {
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 22px;
+    color: $text--b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
+    user-select: none;
+    cursor: pointer;
+    transition: all .2s;
+
+    &.active {
+      background: #CDE1EE;
+      border-radius: 3px 3px 0 0;
+
+      svg {
+        transform: rotate(-90deg);
+      }
+    }
+
+    svg {
+      transition: all .4s;
+    }
+  }
+}
+
+.accordion-sublist {
+
+  &__item {
+    padding: 30px;
+    background: #EDF3F6;
+    border-radius: 0 0 3px 3px;
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: $text--b;
+  }
+}

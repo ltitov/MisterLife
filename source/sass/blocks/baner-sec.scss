@@ -1,0 +1,90 @@
+.baner-sec {
+  background: $color--c;
+
+  &__wrapp {
+    display: flex;
+    flex-direction: column;
+    min-height: 678px;
+    justify-content: center;
+  }
+
+  &__box {
+    display: grid;
+    grid-gap: 30px;
+    max-width: 670px;
+    width: 100%;
+  }
+
+  &__subtitle {
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 37px;
+    color: $text--b;
+  }
+
+  &__title {
+    font-family: $font-family2;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 60px;
+    line-height: 76px;
+    text-transform: uppercase;
+    color: $text--w;
+  }
+
+  &__descr {
+    display: flex;
+    align-items: center;
+    grid-gap: 10px;
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: $text--b;
+  }
+}
+
+.callback-form__form {
+  display: flex;
+  align-items: center;
+  height: 60px;
+  max-width: 450px;
+  width: 100%;
+  background: $color--w;
+
+  .select__header {
+    width: fit-content;
+  }
+
+  input {
+    height: 100%;
+    border: none;
+
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: $text--b;
+  }
+}
+
+.callback-form__order {
+  height: 100%;
+}
+
+
+.baner-sec__image {
+  position: absolute;
+  max-height: 670px;
+  max-width: 670px;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  bottom: 0;
+  right: -11%;
+
+}

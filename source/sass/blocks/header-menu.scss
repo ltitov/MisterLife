@@ -1,0 +1,11 @@
+.header-menu {
+  display: grid;
+  grid-gap: 3px;
+
+  span {
+    display: block;
+    width: 16px;
+    height: 2px;
+    background: $color--a;
+  }
+}

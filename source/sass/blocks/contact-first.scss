@@ -1,0 +1,64 @@
+.contact-first {
+  padding-top: 70px;
+
+  &__top {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  &__item {
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    position: relative;
+
+    &::before {
+      width: 100%;
+      height: 2px;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      background: #3C93F0;
+      border-radius: 1px;
+    }
+  }
+
+  &__year {
+    font-family: $font-family2;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 60px;
+    line-height: 105%;
+    color: $text--b;
+
+    small {
+      font-size: 20px;
+      line-height: 21px;
+    }
+  }
+
+  &__name {
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 24px;
+    color: $text--b;
+  }
+
+  &__article {
+    display: grid;
+    grid-gap: 30px;
+    font-family: $font-family3;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    color: $text--b;
+  }
+}

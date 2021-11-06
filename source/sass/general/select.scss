@@ -1,0 +1,131 @@
+.select {
+  position: relative;
+}
+
+.select.is-active .select__body {
+  max-height: 500px;
+  height: auto;
+}
+
+.select.is-active {
+  .select__icon {
+    transform: scaleY(-1);
+  }
+  .select__body {
+    display: block;
+  }
+
+  .select__header {
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+    padding-top: 5px;
+    margin-top: -5px;
+  }
+}
+
+.select__header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  width: 240px;
+  padding: 0 10px;
+  justify-content: flex-start;
+  grid-gap: 5px;
+}
+
+.select__current {
+  font-family: $font-family1;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: $text--b;
+}
+
+.select__icon {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  height: 6px;
+  text-align: center;
+  width: 13px;
+  transition: all .4s;
+}
+
+.select__body {
+  display: none;
+  max-height: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 100%;
+  z-index: 5;
+  border-top: none;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 0px 0px 2px 2px;
+  padding: 0;
+}
+
+.select__item {
+  font-family: $font-family1;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #072952;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.select__wrapp {
+  background-color: #fff;
+  width: 100%;
+}
+
+.select__item:hover {
+  background-color: #00479B;
+  color: #fff;
+}
+
+
+
+.header-lang {
+  .select__header {
+    border: none;
+    width: auto;
+    padding: 0;
+  }
+  .select__body {
+    position: absolute;
+    z-index: 10;
+
+    margin-top: 5px;
+    padding: 2px 5px;
+
+    background-color: #ffffff;
+    border: 1px solid #c7d1dd;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .select__current,
+  .select__item {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    font-family: Rubik;
+    color: #959595;
+    padding: 5px 4px;
+    &:hover {
+      background-color: rgb(255, 255, 255);
+      color: #1d7ef5;
+    }
+  }
+
+
+}
+
+
+
+
+
+

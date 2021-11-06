@@ -1,0 +1,11 @@
+@mixin before {
+  content: '';
+  position: absolute;
+
+}
+
+@mixin btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

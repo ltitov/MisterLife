@@ -1,0 +1,53 @@
+header {
+  padding: 20px 0;
+  background: $color--w;
+}
+
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__right {
+    display: flex;
+    align-items: center;
+    grid-gap: 20px;
+  }
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  grid-gap: 12px;
+}
+
+.header-nav__list {
+  display: flex;
+  align-items: center;
+  grid-gap: 40px;
+
+  a {
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: $text--b;
+  }
+}
+
+.header-phone {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 28px;
+  line-height: 35px;
+  display: flex;
+  align-items: center;
+  color: $text--b;
+
+  span {
+    color: $text--c;
+  }
+}

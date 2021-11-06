@@ -1,0 +1,70 @@
+/* Контейнер */
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 18px;
+  margin: 0;
+  cursor: pointer;
+  user-select: none;
+  font-family: $font-family1;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 100%;
+  color: rgba(62, 62, 62, 0.5);
+}
+
+/* Hide the browser's default checkbox */
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  height: 10px;
+  width: 10px;
+  background: #3C93F0;
+  border-radius: 3px;
+  border: 2px solid #fff;
+}
+
+/* При наведении курсора мыши добавьте серый цвет фона */
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* Если флажок установлен, добавьте синий фон */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Создайте флажок/индикатор (скрытый, если он не установлен) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Показывать галочку при установке флажка */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Стиль галочки/индикатора */
+.checkbox-container .checkmark:after {
+  left: 2px;
+  top: 0.3px;
+  width: 2px;
+  height: 4px;
+  border: solid white;
+  border-width: 0 1px 1px 0;
+  transform: rotate(45deg);
+}

@@ -1,0 +1,27 @@
+.marker-list {
+  display: grid;
+  grid-gap: 7px;
+
+  &__item {
+    padding-left: 17px;
+    position: relative;
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: $text--b;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-radius: 1px;
+      background: $color--a;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+    }
+  }
+}
