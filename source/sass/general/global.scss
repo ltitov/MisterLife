@@ -114,9 +114,13 @@ input[type="number"] {
   padding: 0 10px;
 }
 
-// .tabcontent {
-//   display: none;
-// }
+.tabcontent {
+  display: none;
+
+  &.active {
+    display: block;
+  }
+}
 
 
 * {

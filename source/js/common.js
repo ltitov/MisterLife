@@ -70,21 +70,26 @@ for (i = 0; i < acc.length; i++) {
 // ---- переключение страниц -----
 
 function tabs(evt, pageName) {
-  evt.preventDefault()
-  var i, tabcontent, tablinks;
+   // Declare all variables
+   var i, tabcontent, tablinks;
 
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
-  }
+   // Get all elements with class="tabcontent" and hide them
+   tabcontent = document.getElementsByClassName("tabcontent");
+   for (i = 0; i < tabcontent.length; i++) {
+     // tabcontent[i].style.display = "none";
+     tabcontent[i].classList.remove('active');
+   }
 
-  tablinks = document.getElementsByClassName("tab-nav");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" active", "");
-  }
+   // Get all elements with class="tablinks" and remove the class "active"
+   tablinks = document.getElementsByClassName("tab-nav");
+   for (i = 0; i < tablinks.length; i++) {
+     tablinks[i].className = tablinks[i].className.replace(" active", "");
+   }
 
-  document.getElementById(pageName).style.display = "block";
-  evt.currentTarget.className += " active";
+   // Show the current tab, and add an "active" class to the button that opened the tab
+   document.getElementById(pageName).className += " active";
+   evt.currentTarget.className += " active";
+   // document.getElementById(navName).className += " active";
 }
 
 // ---- переключение страниц -----
