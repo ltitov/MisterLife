@@ -15,6 +15,16 @@
 
   svg {
     fill: currentColor;
+    transition: transform .4s;
+  }
+
+  transition: all .4s;
+
+  &:hover {
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.404));
+    svg {
+      transform: translateX(5px);
+    }
   }
 }
 
@@ -33,6 +43,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all .4s;
+
+  &:hover {
+    filter: drop-shadow(0px 0px 14px rgba(0, 0, 0, 0.438));
+    transform: scale(1.02);
+    background: #3c48f0;
+  }
 }
 
 .dowload-button {
@@ -54,6 +71,14 @@
   svg {
     fill: currentColor;
   }
+
+  transition: all .4s;
+
+  &:hover {
+    filter: drop-shadow(0px 0px 10px rgba(0, 0, 0, 0.438));
+    transform: scale(1.02);
+    background: #ffc400;
+  }
 }
 
 .top-button {
@@ -72,6 +97,13 @@
   width: 120px;
   height: 35px;
   border-radius: 2px;
+  transition: all .4s;
+
+  &:hover {
+    filter: drop-shadow(0px 0px 14px rgba(0, 0, 0, 0.438));
+    transform: scale(1.02) translateX(-50%);
+    background: #3c48f0;
+  }
 
   svg {
     fill: currentColor;

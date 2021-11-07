@@ -1,5 +1,6 @@
 .baner-sec {
   background: $color--c;
+  position: relative;
 
   &__wrapp {
     display: flex;
@@ -87,4 +88,35 @@
   bottom: 0;
   right: -11%;
 
+}
+
+
+.security-box {
+  display: flex;
+  align-items: center;
+  padding: 0 12px 0 11px;
+  grid-gap: 2px;
+  font-family: $font-family2;
+  background: #3C93F0;
+  border-radius: 3px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
+  position: absolute;
+  color: #FFFFFF;
+  width: 193px;
+  height: 45px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  left: -75px;
+
+
+  svg {
+    transform: rotate(-90deg);
+  }
 }

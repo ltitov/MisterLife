@@ -1,73 +1,88 @@
-
-
-
-function addClassToHeader(){   // ----  функция липкой шапки   -----
-  if (document.documentElement.clientWidth > 992) {
-    window.onscroll = function() {fixedHeader()}
-    function fixedHeader() {
-      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-        header.classList.add('fixed');
-      } else {
-        header.classList.remove('fixed');
+window.addEventListener("DOMContentLoaded", function() {
+  [].forEach.call( document.querySelectorAll('.tel'), function(input) {
+  var keyCode;
+  function mask(event) {
+      event.keyCode && (keyCode = event.keyCode);
+      var pos = this.selectionStart;
+      if (pos < 3) event.preventDefault();
+      var matrix = "+7 (___) ___-__-__",
+          i = 0,
+          def = matrix.replace(/\D/g, ""),
+          val = this.value.replace(/\D/g, ""),
+          new_value = matrix.replace(/[_\d]/g, function(a) {
+              return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+          });
+      i = new_value.indexOf("_");
+      if (i != -1) {
+          i < 5 && (i = 3);
+          new_value = new_value.slice(0, i)
       }
-    }
-  };
-}
+      var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+          function(a) {
+              return "\\d{1," + a.length + "}"
+          }).replace(/[+()]/g, "\\$&");
+      reg = new RegExp("^" + reg + "$");
+      if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+      if (event.type == "blur" && this.value.length < 5)  this.value = ""
+  }
 
-// window.addEventListener('resize', () => {
-//   addClassToHeader();
-// });
-// window.addEventListener('DOMContentLoaded', () => {
-//   addClassToHeader();
-// });
+  input.addEventListener("input", mask, false);
+  input.addEventListener("focus", mask, false);
+  input.addEventListener("blur", mask, false);
+  input.addEventListener("keydown", mask, false)
 
-// for (const anchor of anchors) {
-//   anchor.addEventListener('click', function (e) {
-//     document.body.classList.remove('body-fixed');
-//     mobileMenu.classList.remove('active');
-//     buttons.forEach(button => button.classList.remove('active'));
-//     e.preventDefault();
-//     const blockID = anchor.getAttribute('data-href');
-//     let sections =  document.querySelectorAll('.' + blockID);
-//     sections.forEach(function(section) {
-//       section.scrollIntoView({
-//         behavior: 'smooth',
-//         block: 'start'
-//       });
-//     });
-//   });
-// };
+  });
 
-// document.addEventListener("DOMContentLoaded", function(event) {
-//   // ----  инициализация анимаций  -----
+});
 
-
-//   if (document.documentElement.clientWidth < 1200) {
-
-//   }
-// });
 
 // --------------------------------------------------------------------
 // ----  акордион  -----
+const accordeon = {
+  CLASS: 'accordion',
+  CLASS_ACTIVE: 'active',
+}
 
-var acc = document.getElementsByClassName("accordion");
-var i;
+const acc = document.querySelectorAll(`.${accordeon.CLASS}`);
+let openedAccordeon = null;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var panel = this.nextElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
+function closeAccordeon(acc) {
+  acc.nextElementSibling.style.maxHeight = 0;
+  acc.classList.remove(accordeon.CLASS_ACTIVE);
+}
+
+function openAccordeon(acc) {
+  acc.nextElementSibling.style.maxHeight = `${acc.nextElementSibling.scrollHeight}px`;
+  acc.classList.add(accordeon.CLASS_ACTIVE);
+}
+
+function isAccordeonOpen(acc) {
+  acc.nextElementSibling && !acc.nextElementSibling.style.maxHeight
+}
+
+for (const accordeon of acc) {
+  accordeon.addEventListener("click", function () {
+    const currentAccordeon = this;
+    openedAccordeon && closeAccordeon(openedAccordeon);
+    if (isAccordeonOpen(currentAccordeon)) {
+      closeAccordeon(currentAccordeon);
     } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
+      openAccordeon(currentAccordeon);
+      openedAccordeon = currentAccordeon;
     }
   });
+};
+
+var accFirst = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < accFirst.length; i++) {
+  accFirst[0].click();
 }
 
 // ----  акордион  -----
 // --------------------------------------------------------------------
-// ---- переключение страниц -----
+// ---- переключение табов -----
 
 function tabs(evt, pageName) {
    // Declare all variables
@@ -92,7 +107,7 @@ function tabs(evt, pageName) {
    // document.getElementById(navName).className += " active";
 }
 
-// ---- переключение страниц -----
+// ---- переключение табов -----
 // --------------------------------------------------------------------
 
 // --------------------------------------------------------------------
@@ -107,8 +122,6 @@ function goUp() {
       timeOut = setTimeout('goUp()',20);
    } else clearTimeout(timeOut);
 }
-
-
 
 // -----------------  Селект  --------------------
 
@@ -136,10 +149,17 @@ if (select.length) {
 
 lightGallery(document.getElementById('lightgallery'));
 lightGallery(document.getElementById('cert'));
+lightGallery(document.getElementById('scrinGalery'));
+
+
 
 let masterSlider = new Swiper(".master-sec__slider", {
   spaceBetween: 15,
   slidesPerView: 3,
+  freeMode: true,
+  autoPlay: {
+    delay: 500,
+  },
   pagination: {
         el: ".master-sec__dots",
         clickable: true,
@@ -149,3 +169,7 @@ let masterSlider = new Swiper(".master-sec__slider", {
     prevEl: ".master-sec__prev",
   },
 });
+
+
+
+
