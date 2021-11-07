@@ -1,0 +1,68 @@
+.sity-sec {
+  padding-top: 70px;
+
+  &__top {
+    margin-bottom: 50px;
+  }
+
+  &__box {
+    padding: 50px 0;
+    background-image: url(../img/map-bg.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 65% 32%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__list {
+    display: grid;
+    grid-gap: 40px;
+    min-width: 330px;
+  }
+
+  &__item {
+    display: grid;
+
+    &:nth-child(2) {
+      .sity-sec__value {
+        font-size: 96px;
+        line-height: 105%;
+      }
+    }
+
+    &:nth-child(3) {
+      .sity-sec__value {
+        font-size: 64px;
+        line-height: 100%;
+      }
+    }
+  }
+
+  &__value {
+    font-family: $font-family2;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 120px;
+    line-height: 105%;
+    color: $text--b;
+  }
+
+  &__descr {
+    font-family: $font-family2;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 105%;
+    color: $text--b;
+    display: flex;
+    height: 50px;
+    width: fit-content;
+    align-items: center;
+    padding: 0 15px;
+    background: #FED036;
+    border-radius: 3px;
+  }
+}

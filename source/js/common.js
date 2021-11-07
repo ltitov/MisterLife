@@ -69,7 +69,7 @@ for (i = 0; i < acc.length; i++) {
 // --------------------------------------------------------------------
 // ---- переключение страниц -----
 
-function openPage(evt, pageName) {
+function tabs(evt, pageName) {
   evt.preventDefault()
   var i, tabcontent, tablinks;
 
@@ -78,23 +78,13 @@ function openPage(evt, pageName) {
     tabcontent[i].style.display = "none";
   }
 
-  tablinks = document.getElementsByClassName("nav-buttons__button");
+  tablinks = document.getElementsByClassName("tab-nav");
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
 
   document.getElementById(pageName).style.display = "block";
   evt.currentTarget.className += " active";
-
-  mobileMenu.classList.remove('active');
-  buttons.forEach(button => button.classList.remove('active'));
-  document.body.classList.remove('body-fixed');
-  addAnimate();
-
-  function addAnimate(){
-    caseSec.classList.add('activeAnimate');
-  }
-
 }
 
 // ---- переключение страниц -----

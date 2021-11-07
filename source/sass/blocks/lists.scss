@@ -25,3 +25,34 @@
     }
   }
 }
+
+
+.adress-list {
+  display: grid;
+  background-color: #fff;
+  grid-gap: 10px;
+  padding: 15px 20px;
+  border: 1px solid transparent;
+  box-sizing: border-box;
+  border-radius: 3px;
+
+  &__item {
+    display: flex;
+    align-items: baseline;
+    grid-gap: 10px;
+  }
+
+  &__title {
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    color: $text--b;
+  }
+
+  &__inner {
+    display: grid;
+    grid-gap: 10px;
+  }
+}

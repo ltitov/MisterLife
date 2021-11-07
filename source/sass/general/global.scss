@@ -114,8 +114,47 @@ input[type="number"] {
   padding: 0 10px;
 }
 
-.tabcontent {
-  display: none;
+// .tabcontent {
+//   display: none;
+// }
+
+
+* {
+
+  /* FireFox */
+  scrollbar-color: #EDF3F6;
+
+  &::-webkit-scrollbar {
+    width: 9px;
+    box-shadow: none;
+    height: 100%;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #3C93F0;
+    border-radius: 4px;
+    background-clip: padding-box;
+    border: 2px solid #EDF3F6;
+    box-shadow: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color:#EDF3F6;
+    cursor: pointer;
+    border-radius: 6px;
+    box-shadow: none;
+    height: 100%;
+  }
+
+  ::-webkit-scrollbar-button {
+    background-color: transparent;
+    box-shadow: none;
+    display: none;
+  }
 }
 
 

@@ -1,0 +1,87 @@
+.map-section {
+  padding-top: 70px;
+
+  &__top {
+    margin-bottom: 50px;
+  }
+
+  &__box {
+    display: grid;
+    grid-template-columns: 32% 66%;
+    max-height: 500px;
+    justify-content: space-between;
+    height: auto;
+  }
+
+  &__form {
+    height: 50px;
+    display: flex;
+
+    input {
+      height: 100%;
+      border: none;
+      text-indent: 20px;
+      background: #FFFFFF;
+      border: 1px solid #EDF3F6;
+      box-sizing: border-box;
+      border-radius: 3px 0 0 3px;
+      border-right: none;
+      margin-right: -2px;
+    }
+  }
+
+  &__submit {
+    max-width: 126px;
+    width: 100%;
+    font-family: $font-family2;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 14px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+  }
+
+  &__item {
+    flex-direction: column;
+    display: flex;
+    grid-gap: 20px;
+    overflow: hidden;
+  }
+
+  &__list {
+    max-height: 434px;
+    height: auto;
+    overflow-y: scroll;
+    padding-right: 13px;
+  }
+
+  &__inner {
+    cursor: pointer;
+
+    &:hover {
+      .adress-list {
+        border-color: #FED036;
+      }
+    }
+
+    &.active {
+      .adress-list {
+        border-color: #FED036;
+      }
+    }
+
+    &:not(:first-child) {
+      margin-top: 10px;
+    }
+  }
+
+}
+
+
+
+
+
+.map-section__list {
+
+}
