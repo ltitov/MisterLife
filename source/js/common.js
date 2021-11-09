@@ -39,9 +39,9 @@ const tabsParr = document.querySelector('.chose-tabs');
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  let tabs = tabsParr.querySelector('.tabs');
-  let tabsBtn = tabsParr.querySelectorAll('.tablinks');
-  let tabsContent = tabsParr.querySelectorAll('.tabcontent');
+  const tabs = tabsParr.querySelector('.tabs');
+  const tabsBtn = tabsParr.querySelectorAll('.tablinks');
+  const tabsContent = tabsParr.querySelectorAll('.tabcontent');
 
   if (tabs) {
     tabs.addEventListener('click', (e) => {
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  let tabsHandler = (path) => {
+  const tabsHandler = (path) => {
     tabsContent.forEach(el => {el.classList.remove('active')});
     tabsParr.querySelector(`[data-tabs-target="${path}"]`).classList.add('active');
   };
@@ -174,9 +174,8 @@ lightGallery(document.getElementById('lightgallery'),{
 });
 lightGallery(document.getElementById('cert'));
 lightGallery(document.getElementById('scrinGalery'));
-// lightGallery();
-const galerySliders = [...document.querySelectorAll('.look-slide')];
 
+const galerySliders = [...document.querySelectorAll('.look-slide')];
 galerySliders.map(galerySlider => {
   lightGallery(galerySlider.querySelector('.look-tab'));
 });
@@ -199,9 +198,7 @@ let masterSlider = new Swiper(".master-sec__slider", {
 let lookSlider = new Swiper(".look-slider", {
   spaceBetween: 20,
   slidesPerView: 2,
-  loop: true,
-  // noSwiping: false,
-  // allowTouchMove: false,
+  grabCursor: true,
   navigation: {
     nextEl: ".look-next",
     prevEl: ".look-prev",
@@ -239,57 +236,39 @@ loopSlider.autoplay.start();
 
 
 
-// var frame = document.querySelector('.loop-track')
-// frame.innerHTML = `<li class="loop-slide">${frame.innerHTML + frame.innerHTML}</li>`
-
-const slides = [...document.querySelectorAll('.look-wrapper')];
-
-// slides.forEach(slide => {
-//     let tabs = slide.querySelector('.tabs');
-//     let tabsBtn = slide.querySelectorAll('.tablinks');
-//     let tabsContent = slide.querySelectorAll('.tabcontent');
-
-//     if (tabs) {
-//       tabs.addEventListener('click', (e) => {
-//         if (e.target.classList.contains('tablinks')) {
-//           const tabsPath = e.target.dataset.tabsPath;
-//           tabsBtn.forEach(el => {el.classList.remove('active')});
-//           slide.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('active');
-//           tabsHandler(tabsPath);
-//         }
-//       });
-//     }
-
-//     let tabsHandler = (path) => {
-//       tabsContent.forEach(el => {el.classList.remove('active')});
-//       slide.querySelector(`[data-tabs-target="${path}"]`).classList.add('active');
-//     };
-
-// });
 
 
-for (const slide of slides) {
-  let tabs = slide.querySelector('.tabs');
-  let tabsBtn = slide.querySelectorAll('.tablinks');
-  let tabsContent = slide.querySelectorAll('.tabcontent');
+const slides = document.querySelectorAll('.look-wrapper');
 
-  if (tabs) {
-    tabs.addEventListener('click', (e) => {
-      if (e.target.classList.contains('tablinks')) {
-        const tabsPath = e.target.dataset.tabsPath;
-        tabsBtn.forEach(el => {el.classList.remove('active')});
-        slide.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('active');
-        tabsHandler(tabsPath);
+slides.forEach(slide => {
+    const tabs = slide.querySelector('.tabs');
+    const tabsBtn = slide.querySelectorAll('.tablinks');
+    const tabsContent = slide.querySelectorAll('.tabcontent');
+    console.log(tabs)
+    if (tabs) {
+
+      for (const item of tabsBtn) {
+        item.addEventListener('click', (e) => {
+          console.log(e.currentTarget);
+          if (e.currentTarget.classList.contains('tablinks')) {
+            console.log('work');
+            const tabsPath = e.currentTarget.dataset.tabsPath;
+            tabsBtn.forEach(el => {el.classList.remove('active')});
+            slide.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('active');
+            tabsHandler(tabsPath);
+          }
+        });
       }
-    });
-  }
+    }
 
-  let tabsHandler = (path) => {
-    tabsContent.forEach(el => {el.classList.remove('active')});
-    slide.querySelector(`[data-tabs-target="${path}"]`).classList.add('active');
-  };
+    const tabsHandler = (path) => {
+      tabsContent.forEach(el => {el.classList.remove('active')});
+      slide.querySelector(`[data-tabs-target="${path}"]`).classList.add('active');
+    };
 
-}
+});
+
+
 
 
 
