@@ -35,6 +35,29 @@ window.addEventListener("DOMContentLoaded", function() {
 
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+  const tabs = document.querySelector('.tabs');
+  const tabsBtn = document.querySelectorAll('.tablinks');
+  const tabsContent = document.querySelectorAll('.tabcontent');
+
+  if (tabs) {
+    tabs.addEventListener('click', (e) => {
+      if (e.target.classList.contains('tablinks')) {
+        const tabsPath = e.target.dataset.tabsPath;
+        tabsBtn.forEach(el => {el.classList.remove('active')});
+        document.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('active');
+        tabsHandler(tabsPath);
+      }
+    });
+  }
+
+  const tabsHandler = (path) => {
+    tabsContent.forEach(el => {el.classList.remove('active')});
+    document.querySelector(`[data-tabs-target="${path}"]`).classList.add('active');
+  };
+});
+
+
 
 // --------------------------------------------------------------------
 // ----  акордион  -----
@@ -156,10 +179,6 @@ lightGallery(document.getElementById('scrinGalery'));
 let masterSlider = new Swiper(".master-sec__slider", {
   spaceBetween: 15,
   slidesPerView: 3,
-  freeMode: true,
-  autoPlay: {
-    delay: 500,
-  },
   pagination: {
         el: ".master-sec__dots",
         clickable: true,
@@ -171,5 +190,37 @@ let masterSlider = new Swiper(".master-sec__slider", {
 });
 
 
+let loopSlider = new Swiper(".loop-slider ", {
+  spaceBetween: 20,
+  slidesPerView: 5,
+  loop: true,
+  centerSlides: true,
+  autoPlay: {
+    delay: 900,
+  },
+  speed: 3000,
+  disableOnInteraction: true,
+  pauseOnMouseEnter: true,
+  addSlidesBefore: 10,
+
+  on: {
+    init() {
+      this.el.addEventListener('mouseenter', () => {
+        this.autoplay.stop();
+      });
+
+      this.el.addEventListener('mouseleave', () => {
+        this.autoplay.start();
+      });
+    }
+  },
+});
+
+loopSlider.autoplay.start();
+
+
+
+// var frame = document.querySelector('.loop-track')
+// frame.innerHTML = `<li class="loop-slide">${frame.innerHTML + frame.innerHTML}</li>`
 
 

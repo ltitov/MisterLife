@@ -1,0 +1,142 @@
+.price-sec {
+  padding-top: 70px;
+
+  &__top {
+    margin-bottom: 50px;
+  }
+
+  &__item {
+    padding: 20px 32px;
+    background: #FFFFFF;
+    border: 1px solid #F1F1F1;
+    display: grid;
+    grid-template-columns: 32% Min(375px, 34%) 16% 14%;
+    justify-content: space-between;
+    align-items: center;
+    transition:  all .4s;
+
+    &:hover {
+      background: linear-gradient(0deg, rgba(254, 208, 54, 0.2), rgba(254, 208, 54, 0.2)), #FFFFFF;
+      border: 1px solid #F1F1F1;
+    }
+  }
+
+  &__name {
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: bold;
+    font-size: clamp(14px, 1.667vw ,24px);
+    line-height: 100%;
+    color: #3E3E3E;
+  }
+
+  &__descr {
+    font-family: $font-family1 ;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #3E3E3E;
+    opacity: 0.5;
+    flex-shrink: 0;
+  }
+
+  &__value {
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: bold;
+    font-size: clamp(14px, 1.667vw ,24px);
+    line-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #3E3E3E;
+  }
+
+  &__order {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    grid-gap: 20px;
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: bold;
+    font-size: clamp(14px, 1.250vw ,18px);
+    line-height: 22px;
+    text-transform: uppercase;
+    color: #3C93F0;
+
+    svg {
+      max-width: 21px;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__box {
+    display: grid;
+    grid-gap: 30px;
+  }
+
+  &__inner {
+    padding: 15px 0;
+    background: #EDF3F6;
+  }
+
+  &__button {
+    width: 213px;
+    max-width: initial;
+    margin: 0 auto;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #3C93F0;
+    border-radius: 3px;
+
+    font-family: $font-family1 ;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+  }
+
+
+}
+
+
+.price-free {
+  display: flex;
+  justify-content: space-between;
+
+  &__item {
+    width: calc(100% / 3 - 18px);
+    padding: 17px 10px;
+    border: 1px dashed #3C93F0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-family: $font-family1 ;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #3E3E3E;
+  }
+
+  &__value {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    grid-gap: 6px;
+    font-size: 18px;
+    line-height: 22px;
+    color: #3E3E3E;
+    font-family: $font-family1 ;
+  }
+}
