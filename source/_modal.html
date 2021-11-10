@@ -1,0 +1,147 @@
+<div class="overlay">
+  <div class="modal call-modal" data-modal="master">
+    <button class="call-modal__close submit-btn">
+      <svg width='35' height='35'>
+        <use href='img/sprite/sprite.svg#close-button'></use>
+      </svg>
+    </button>
+    <div class="call-modal__box">
+      <div class="call-modal__image">
+        <picture>
+          <source type='image/webp' srcset='img/modal/master.webp'>
+          <img width='369' height='405' src='img/modal/master.png' alt='master'>
+        </picture>
+      </div>
+      <div class="call-modal__wrapper">
+        <span class="call-modal__label call-modal__label--online">
+          сейчас на связи
+        </span>
+        <h2 class="call-modal__title">
+          Вызвать мастера
+        </h2>
+        <form action="#" class="call-modal__form">
+          <fieldset class="call-modal__fieldset">
+            <input type="text" placeholder="Ваше имя" required>
+          </fieldset>
+          <fieldset class="call-modal__fieldset">
+            <div class="call-modal__select">
+              <div class='select'>
+                <div class='select__header'>
+                  <span class='select__current'>
+                    <svg width='26' height='21'>
+                      <use href='img/sprite/sprite.svg#flag'></use>
+                    </svg>
+                  </span>
+                  <div class='select__icon'>
+                    <svg width="8" height="6">
+                      <use href='img/sprite/sprite.svg#select-input'></use>
+                    </svg>
+                  </div>
+                </div>
+                <div class='select__body'>
+                  <ul class='select__wrapp'>
+                    <li class='select__item' data-choice='choosen'>
+                      <svg width='26' height='21'>
+                        <use href='img/sprite/sprite.svg#flag'></use>
+                      </svg>
+                    </li>
+                    <li class='select__item' data-choice='choosen'>
+                      <svg width='26' height='21'>
+                        <use href='img/sprite/sprite.svg#flag'></use>
+                      </svg>
+                    </li>
+                    <li class='select__item' data-choice='choosen'>
+                      <svg width='26' height='21'>
+                        <use href='img/sprite/sprite.svg#flag'></use>
+                      </svg>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+          <input type="tel" class="tel" required placeholder="+7 (999) 000-00-00">
+          </fieldset>
+          <p class="call-modal__info">
+            Нажимая кнопку «заказать», вы соглашаетесь на обработку персональных данных и подтверждаете свое совершеннолетие в соответствии с <a href="#">политикой конфиденциальности</a>.
+          </p>
+        </form>
+      </div>
+      <div class="call-modal__bottom">
+        <button class="call-modal__button submit-btn">
+          Отправить
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal geo-modal" data-modal="map-master">
+    <button class="geo-modal__close submit-btn">
+      <svg width='17' height='17'>
+        <use href='img/sprite/sprite.svg#close'></use>
+      </svg>
+    </button>
+
+    <div class="geo-modal__box">
+      <div class="geo-modal__top">
+        <h2 class="geo-modal__title">
+          Когда будет мастер?
+        </h2>
+
+        <p class="geo-modal__text">
+          Поздравляем, ваш адрес входит в зону нашего обслуживания, рассчитали растояние до ближашего мастера и время прибытия.
+        </p>
+
+      </div>
+
+      <div class="geo-modal__image">
+        <picture>
+          <source type='image/webp' srcset='img/modal/map.webp'>
+          <img width='751' height='278' src='img/modal/map.png' alt='map'>
+        </picture>
+
+        <div class="geo-modal__icon">
+          <svg width="36" height="44">
+            <use href='img/sprite/sprite.svg#geo-icon'></use>
+          </svg>
+        </div>
+
+        <div class="geo-modal__info">
+          <span>
+            3.24 км
+          </span>
+          до ближайшего мастера
+        </div>
+      </div>
+
+      <div class="geo-modal__time">
+        <h3 class="geo-modal__subtitle">
+          ~ 50 минут до прибытия мастера
+        </h3>
+      </div>
+
+      <div class="geo-modal__bottom">
+        <button class="geo-modal__button" data-btn="call-master">
+          Вызвать мастера
+        </button>
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

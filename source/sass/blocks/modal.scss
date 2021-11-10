@@ -1,0 +1,356 @@
+.overlay {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .4s;
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    background: rgba(62, 62, 62, 0.8);
+  }
+}
+
+.modal {
+  visibility: hidden;
+  transform: scaleZ(0) translateY(-100%);
+  transition: all .4s;
+  position: absolute;
+  opacity: 0;
+
+  &.active {
+    visibility: visible;
+    transform: scaleZ(1) translateY(0);
+    position: relative;
+    opacity: 1;
+  }
+}
+
+
+.call-modal {
+  max-width: 430px;
+  width: 100%;
+  margin: 0 auto;
+
+  &__close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: fit-content;
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  &__wrapper {
+    background: linear-gradient(0deg, #FED036, #FED036), linear-gradient(0deg, #FED036, #FED036), #FED036;
+    border-radius: 3px 3px 0px 0px;
+    padding: 30px 35px 22px;
+    position: relative;
+  }
+
+  &__title {
+    font-family: $font-family2;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 37px;
+    text-align: center;
+    color: #3E3E3E;
+    margin-bottom: 18px;
+  }
+
+  &__label {
+    width: 168px;
+    height: 32px;
+    font-family: $font-family2 ;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12.8px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    color: #000000;
+    background: #FFFFFF;
+    border-radius: 4.8px;
+    position: absolute;
+    left: 50%;
+    padding-left: 10px;
+    transform: translateX(-50%) translateY(-50%);
+    top: 0;
+    z-index: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 8px;
+      background: #09D743;
+      filter:  drop-shadow(0px 0px 5px rgba(9, 215, 67, 0.7)) blur(.4px);
+      border-radius: 50%;
+      z-index: 2;
+    }
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  &__fieldset {
+    padding: 0;
+    margin: 0;
+    border: none;
+    position: relative;
+    height: 40px;
+    border-radius: 3px;
+  }
+
+  input {
+    text-indent: 17px;
+    height: 100%;
+    border: none;
+    border-radius: 3px;
+    width: 100%;
+    position: relative;
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 17px;
+    color: #3E3E3E;
+
+    &::placeholder {
+      font-family: $font-family1;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 14px;
+      line-height: 17px;
+      color: #3E3E3E;
+    }
+  }
+
+  input[type='tel'] {
+    text-indent: 60px;
+
+  }
+
+  .select__header {
+    width: 55px;
+  }
+
+  &__select {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+  }
+
+  .select__item {
+    padding: 8px 11px 0px 11px;
+  }
+
+  &__form {
+    display: grid;
+    grid-gap: 18px;
+  }
+
+  &__info {
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 13px;
+    color: #3E3E3E;
+    opacity: 0.8;
+
+    a {
+      text-decoration: underline;
+      color:  #3C93F0;
+    }
+  }
+
+
+  &__bottom {
+    background: #EDF3F6;
+    padding: 12px 0;
+  }
+
+  &__button {
+    height: 40px;
+    margin: 0 auto;
+  }
+
+}
+
+
+.geo-modal {
+  max-width: 750px;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 3px;
+  margin: 0 auto;
+
+  &__top  {
+    padding: 27px 38px 24px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 40px;
+    right: 33px;
+    width: fit-content;
+    background: transparent;
+    z-index: 10;
+
+    &:hover {
+      transform: scale(1);
+      background: transparent;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-gap: 60px;
+  }
+
+  &__title {
+    font-family: $font-family2 ;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 36px;
+    line-height: 44px;
+    color: #3E3E3E;
+    position: relative;
+
+    &::before {
+      content: '';
+      width: 80px;
+      height: 5px;
+      background: #09D743;
+      border-radius: 1px;
+      position: absolute;
+      left: 0;
+      bottom: -32px;
+    }
+  }
+
+  &__text {
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #000000;
+  }
+
+  &__image {
+    position: relative;
+  }
+
+  &__icon {
+    position: absolute;
+    top: 37%;
+    left: 48%;
+  }
+
+  &__info {
+    position: absolute;
+    left: 0;
+    bottom: 28px;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    padding:0 20px 0 62px ;
+    background: #EDF3F6;
+    font-family: $font-family1;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #3E3E3E;
+
+    span {
+      font-weight: bold;
+      position: relative;
+
+      &::before {
+        content: '';
+        background: #3C93F0;
+        border-radius: 3px;
+        width: 10px;
+        height: 10px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -20px;
+      }
+    }
+  }
+
+  &__time {
+    padding: 27px 38px;
+    background: #FFFFFF;
+  }
+
+  &__subtitle {
+    font-family: $font-family2;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 37px;
+    color: #3E3E3E;
+  }
+
+  &__bottom {
+    padding: 15px 0;
+    background: #EDF3F6;
+  }
+
+  &__button {
+    max-width: 250px;
+    width: 100%;
+    height: 60px;
+    background: #3C93F0;
+    border-radius: 3px;
+    font-family: $font-family2;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    color: #FFFFFF;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+
+}
+
+@media (min-height: 500px) and (max-height: 800px) {
+  .modal.active {
+    transform: scale(.9);
+  }
+}
+
+
+
+

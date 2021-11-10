@@ -97,6 +97,29 @@
     width: 100%;
     height: auto;
     cursor: pointer;
+    position: relative;
+    transition: all .4s;
+
+    &::before {
+      transition: all .4s linear;
+      content: '';
+      right: -1px;
+      left: -1px;
+      bottom: -1px;
+      top: -1px;
+      position: absolute;
+      border: 3px solid transparent;
+      border-radius: 3px;
+    }
+
+
+    &.active {
+      box-shadow:(0px 0px 8px 2px rgba(0, 0, 0, 0.5));
+      &::before {
+        border: 3px solid #3C93F0;
+       }
+    }
+
   }
 
   // picture,img {
@@ -107,6 +130,7 @@
 
 .look-slide {
   position: relative;
+  cursor: pointer;
 }
 
 .look-tab {
@@ -184,4 +208,55 @@
   font-size: 14px;
   line-height: 120%;
   color: #3E3E3E;
+}
+
+.slider-navigation__button {
+  transition: all .4s;
+  height: 40px;
+}
+
+.slider-navigation__button.swiper-button-disabled {
+  opacity: .2;
+  pointer-events: none;
+}
+
+.look-next {
+  position: relative;
+
+  &:before {
+    content: 'листайте вправо';
+    font-family: $font-family2 ;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    color: #878787;
+    position: absolute;
+    white-space: nowrap;
+    width: fit-content;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -130px;
+  }
+}
+
+.look-wrapper__pagination {
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  z-index: 20;
+  font-family: $font-family2;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  display: flex;
+  align-items: center;
+  color: #FFFFFF;
+  grid-gap: 4px;
+
+  span {
+    font-weight: bold;
+    font-size: 38px;
+    line-height: 47px;
+  }
 }

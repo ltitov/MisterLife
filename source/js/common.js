@@ -37,30 +37,30 @@ window.addEventListener("DOMContentLoaded", function() {
 
 const tabsParr = document.querySelector('.chose-tabs');
 
+if (tabsParr) {
+  document.addEventListener('DOMContentLoaded', () => {
+    const tabs = tabsParr.querySelector('.tabs');
+    const tabsBtn = tabsParr.querySelectorAll('.tablinks');
+    const tabsContent = tabsParr.querySelectorAll('.tabcontent');
 
-document.addEventListener('DOMContentLoaded', () => {
-  const tabs = tabsParr.querySelector('.tabs');
-  const tabsBtn = tabsParr.querySelectorAll('.tablinks');
-  const tabsContent = tabsParr.querySelectorAll('.tabcontent');
+    if (tabs) {
+      tabs.addEventListener('click', (e) => {
+        if (e.target.classList.contains('tablinks')) {
+          const tabsPath = e.target.dataset.tabsPath;
+          tabsBtn.forEach(el => {el.classList.remove('active')});
+          tabsParr.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('active');
+          tabsHandler(tabsPath);
+        }
+      });
+    }
 
-  if (tabs) {
-    tabs.addEventListener('click', (e) => {
-      if (e.target.classList.contains('tablinks')) {
-        const tabsPath = e.target.dataset.tabsPath;
-        tabsBtn.forEach(el => {el.classList.remove('active')});
-        tabsParr.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('active');
-        tabsHandler(tabsPath);
-      }
-    });
-  }
+    const tabsHandler = (path) => {
+      tabsContent.forEach(el => {el.classList.remove('active')});
+      tabsParr.querySelector(`[data-tabs-target="${path}"]`).classList.add('active');
+    };
+  });
 
-  const tabsHandler = (path) => {
-    tabsContent.forEach(el => {el.classList.remove('active')});
-    tabsParr.querySelector(`[data-tabs-target="${path}"]`).classList.add('active');
-  };
-});
-
-
+}
 
 // --------------------------------------------------------------------
 // ----  акордион  -----
@@ -198,44 +198,43 @@ let masterSlider = new Swiper(".master-sec__slider", {
 let lookSlider = new Swiper(".look-slider", {
   spaceBetween: 20,
   slidesPerView: 2,
-  grabCursor: true,
   navigation: {
     nextEl: ".look-next",
     prevEl: ".look-prev",
   },
 });
 
+const loop = document.querySelector('.loop-slider');
 
-let loopSlider = new Swiper(".loop-slider ", {
-  spaceBetween: 20,
-  slidesPerView: 5,
-  loop: true,
-  centerSlides: true,
-  autoPlay: {
-    delay: 900,
-  },
-  speed: 3000,
-  disableOnInteraction: true,
-  pauseOnMouseEnter: true,
-  addSlidesBefore: 10,
+if (loop) {
+  let loopSlider = new Swiper(".loop-slider ", {
+    spaceBetween: 20,
+    slidesPerView: 5,
+    loop: true,
+    centerSlides: true,
+    autoPlay: {
+      delay: 900,
+    },
+    speed: 3000,
+    disableOnInteraction: true,
+    pauseOnMouseEnter: true,
+    addSlidesBefore: 10,
 
-  on: {
-    init() {
-      this.el.addEventListener('mouseenter', () => {
-        this.autoplay.stop();
-      });
+    on: {
+      init() {
+        this.el.addEventListener('mouseenter', () => {
+          this.autoplay.stop();
+        });
 
-      this.el.addEventListener('mouseleave', () => {
-        this.autoplay.start();
-      });
-    }
-  },
-});
+        this.el.addEventListener('mouseleave', () => {
+          this.autoplay.start();
+        });
+      }
+    },
+  });
 
-loopSlider.autoplay.start();
-
-
-
+  loopSlider.autoplay.start();
+}
 
 
 const slides = document.querySelectorAll('.look-wrapper');
@@ -244,14 +243,10 @@ slides.forEach(slide => {
     const tabs = slide.querySelector('.tabs');
     const tabsBtn = slide.querySelectorAll('.tablinks');
     const tabsContent = slide.querySelectorAll('.tabcontent');
-    console.log(tabs)
     if (tabs) {
-
       for (const item of tabsBtn) {
         item.addEventListener('click', (e) => {
-          console.log(e.currentTarget);
           if (e.currentTarget.classList.contains('tablinks')) {
-            console.log('work');
             const tabsPath = e.currentTarget.dataset.tabsPath;
             tabsBtn.forEach(el => {el.classList.remove('active')});
             slide.querySelector(`[data-tabs-path="${tabsPath}"]`).classList.add('active');
@@ -268,9 +263,77 @@ slides.forEach(slide => {
 
 });
 
+const allModals = document.querySelectorAll('.modal');
+
+const callBtns = document.querySelectorAll('[data-btn="call-master"]');
+const qeoBtns = document.querySelectorAll('[data-btn="geo-btn"]');
+const callModal = document.querySelector('[data-modal="master"]');
+const qeoModal = document.querySelector('[data-modal="map-master"]');
+const overlay = document.querySelector('.overlay');
+
+const callCloses = document.querySelectorAll('.call-modal__close');
+const geoCloses = document.querySelectorAll('.geo-modal__close');
+
+for (const callBtn of callBtns) {
+  callBtn.addEventListener('click', function() {
+    callModal.classList.add('active');
+    overlay.classList.add('active');
+    qeoModal.classList.remove('active')
+  })
+}
+
+for (const callClose of callCloses) {
+  callClose.addEventListener('click', function() {
+    callModal.classList.remove('active');
+    overlay.classList.remove('active');
+  })
+}
 
 
+for (const qeoBtn of qeoBtns) {
+  qeoBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    qeoModal.classList.add('active');
+    overlay.classList.add('active');
+  })
+}
+
+for (const geoClose of geoCloses) {
+  geoClose.addEventListener('click', function() {
+    qeoModal.classList.remove('active');
+    overlay.classList.remove('active');
+  })
+}
+
+document.onclick = function(e){
+    if ( event.target.querySelector('.modal')) {
+      for (const allModal of allModals) {
+        allModal.classList.remove('active');
+      }
+      overlay.classList.remove('active');
+    };
+};
 
 
+// function fadeIn(el, display) {
+//   el.style.opacity = 0;
+//   el.style.display = display || 'block';
+//   (function fade() {
+//       var val = parseFloat(el.style.opacity);
+//       if (!((val += .1) > 1)) {
+//           el.style.opacity = val;
+//           requestAnimationFrame(fade);
+//       }
+//   })();
+// }
 
-
+// function fadeOut(el) {
+//   el.style.opacity = 1;
+//   (function fade() {
+//       if ((el.style.opacity -= .1) < 0) {
+//           el.style.display = 'none';
+//       } else {
+//           requestAnimationFrame(fade);
+//       }
+//   })();
+// };
