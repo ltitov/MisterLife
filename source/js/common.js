@@ -2,47 +2,42 @@ window.addEventListener("DOMContentLoaded", function() {
   [].forEach.call( document.querySelectorAll('.tel'), function(input) {
   var keyCode;
   function mask(event) {
-      event.keyCode && (keyCode = event.keyCode);
-      var pos = this.selectionStart;
-      if (pos < 3) event.preventDefault();
-      var matrix = "+7 (___) ___-__-__",
-          i = 0,
-          def = matrix.replace(/\D/g, ""),
-          val = this.value.replace(/\D/g, ""),
-          new_value = matrix.replace(/[_\d]/g, function(a) {
-              return i < val.length ? val.charAt(i++) || def.charAt(i) : a
-          });
-      i = new_value.indexOf("_");
-      if (i != -1) {
-          i < 5 && (i = 3);
-          new_value = new_value.slice(0, i)
-      }
-      var reg = matrix.substr(0, this.value.length).replace(/_+/g,
-          function(a) {
-              return "\\d{1," + a.length + "}"
-          }).replace(/[+()]/g, "\\$&");
-      reg = new RegExp("^" + reg + "$");
-      if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
-      if (event.type == "blur" && this.value.length < 5)  this.value = ""
+    event.keyCode && (keyCode = event.keyCode);
+    var pos = this.selectionStart;
+    if (pos < 3) event.preventDefault();
+    var matrix = "+7 (___) ___-__-__",
+        i = 0,
+        def = matrix.replace(/\D/g, ""),
+        val = this.value.replace(/\D/g, ""),
+        new_value = matrix.replace(/[_\d]/g, function(a) {
+            return i < val.length ? val.charAt(i++) || def.charAt(i) : a
+        });
+    i = new_value.indexOf("_");
+    if (i != -1) {
+        i < 5 && (i = 3);
+        new_value = new_value.slice(0, i)
+    }
+    var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+        function(a) {
+            return "\\d{1," + a.length + "}"
+        }).replace(/[+()]/g, "\\$&");
+    reg = new RegExp("^" + reg + "$");
+    if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) this.value = new_value;
+    if (event.type == "blur" && this.value.length < 5)  this.value = "";
   }
-
   input.addEventListener("input", mask, false);
   input.addEventListener("focus", mask, false);
   input.addEventListener("blur", mask, false);
   input.addEventListener("keydown", mask, false)
-
   });
-
 });
 
 const tabsParr = document.querySelector('.chose-tabs');
-
 if (tabsParr) {
   document.addEventListener('DOMContentLoaded', () => {
     const tabs = tabsParr.querySelector('.tabs');
     const tabsBtn = tabsParr.querySelectorAll('.tablinks');
     const tabsContent = tabsParr.querySelectorAll('.tabcontent');
-
     if (tabs) {
       tabs.addEventListener('click', (e) => {
         if (e.target.classList.contains('tablinks')) {
@@ -53,13 +48,11 @@ if (tabsParr) {
         }
       });
     }
-
     const tabsHandler = (path) => {
       tabsContent.forEach(el => {el.classList.remove('active')});
       tabsParr.querySelector(`[data-tabs-target="${path}"]`).classList.add('active');
     };
   });
-
 }
 
 // --------------------------------------------------------------------
@@ -68,24 +61,19 @@ const accordeon = {
   CLASS: 'accordion',
   CLASS_ACTIVE: 'active',
 }
-
 const acc = document.querySelectorAll(`.${accordeon.CLASS}`);
 let openedAccordeon = null;
-
 function closeAccordeon(acc) {
   acc.nextElementSibling.style.maxHeight = 0;
   acc.classList.remove(accordeon.CLASS_ACTIVE);
 }
-
 function openAccordeon(acc) {
   acc.nextElementSibling.style.maxHeight = `${acc.nextElementSibling.scrollHeight}px`;
   acc.classList.add(accordeon.CLASS_ACTIVE);
 }
-
 function isAccordeonOpen(acc) {
   acc.nextElementSibling && !acc.nextElementSibling.style.maxHeight
 }
-
 for (const accordeon of acc) {
   accordeon.addEventListener("click", function () {
     const currentAccordeon = this;
@@ -98,74 +86,58 @@ for (const accordeon of acc) {
     }
   });
 };
-
 var accFirst = document.getElementsByClassName("accordion");
 var i;
-
 for (i = 0; i < accFirst.length; i++) {
-  accFirst[0].click();
+  accFirst[0].click(); //--- открыть первый акордион по умолчанию
 }
-
 // --------------------------------------------------------------------
 // ---- переключение табов -----
 
 function tabs(evt, pageName) {
-   // Declare all variables
    var i, tabcontent, tablinks;
-
-   // Get all elements with class="tabcontent" and hide them
    tabcontent = document.getElementsByClassName("tabcontent");
    for (i = 0; i < tabcontent.length; i++) {
-     // tabcontent[i].style.display = "none";
      tabcontent[i].classList.remove('active');
    }
-
-   // Get all elements with class="tablinks" and remove the class "active"
    tablinks = document.getElementsByClassName("tab-nav");
    for (i = 0; i < tablinks.length; i++) {
      tablinks[i].className = tablinks[i].className.replace(" active", "");
    }
-
-   // Show the current tab, and add an "active" class to the button that opened the tab
    document.getElementById(pageName).className += " active";
    evt.currentTarget.className += " active";
-   // document.getElementById(navName).className += " active";
 }
-
 // --------------------------------------------------------------------
 // ---- скролл к верху страницы -----
 let timeOut;
 function goUp() {
-   let top = Math.max(document.body.scrollTop,document.documentElement.scrollTop);
-   if(top > 0) {
-      window.scrollBy(0,-100);
-      timeOut = setTimeout('goUp()',20);
-   } else clearTimeout(timeOut);
+  let top = Math.max(document.body.scrollTop,document.documentElement.scrollTop);
+  if(top > 0) {
+    window.scrollBy(0,-100);
+    timeOut = setTimeout('goUp()',20);
+  } else clearTimeout(timeOut);
 }
-
 // -----------------  Селект  --------------------
 
 const select = document.querySelectorAll(".select");
-
 if (select.length) {
   select.forEach((item) => {
-    // достаем из текущей сущности .select__current
     const selectCurrent = item.querySelector(".select__current");
-
     item.addEventListener("click", (event) => {
       const el = event.target.dataset.choice;
       const text = event.target.innerText;
-
-      // Проверяем является ли это choosen и не выбрано ли его значение уже
       if (el === "choosen" && selectCurrent.innerText !== text) {
         selectCurrent.innerText = text;
       }
-
-      item.classList.toggle("is-active");
+      item.classList.toggle("active");
+    });
+    document.addEventListener('click', function(event) {
+      if (!item.contains(event.target)) {
+        item.classList.remove('active')
+      }
     });
   });
 }
-
 
 lightGallery(document.getElementById('lightgallery'),{
   subHtmlSelectorRelative: true,
@@ -176,10 +148,7 @@ lightGallery(document.getElementById('cert'));
 lightGallery(document.getElementById('scrinGalery'));
 
 const galerySliders = [...document.querySelectorAll('.look-slide')];
-galerySliders.map(galerySlider => {
-  lightGallery(galerySlider.querySelector('.look-tab'));
-});
-
+galerySliders.map(galerySlider => {lightGallery(galerySlider.querySelector('.look-tab'));});
 
 
 let masterSlider = new Swiper(".master-sec__slider", {
@@ -193,6 +162,21 @@ let masterSlider = new Swiper(".master-sec__slider", {
     nextEl: ".master-sec__next",
     prevEl: ".master-sec__prev",
   },
+  breakpoints: {
+    320: {
+      slidesPerView: 'auto',
+      centerSlides: true,
+      spaceBetween: 15,
+    },
+    768: {
+      slidesPerView: 4,
+      spaceBetween: 40,
+    },
+    1024: {
+      slidesPerView: 5,
+      spaceBetween: 50,
+    },
+  }
 });
 
 let lookSlider = new Swiper(".look-slider", {
@@ -209,17 +193,14 @@ const loop = document.querySelector('.loop-slider');
 if (loop) {
   let loopSlider = new Swiper(".loop-slider ", {
     spaceBetween: 20,
-    slidesPerView: 5,
     loop: true,
     centerSlides: true,
     autoPlay: {
       delay: 900,
     },
     speed: 3000,
-    disableOnInteraction: true,
+    slidesPerView: 'auto',
     pauseOnMouseEnter: true,
-    addSlidesBefore: 10,
-
     on: {
       init() {
         this.el.addEventListener('mouseenter', () => {
@@ -235,7 +216,6 @@ if (loop) {
 
   loopSlider.autoplay.start();
 }
-
 
 const slides = document.querySelectorAll('.look-wrapper');
 
@@ -255,7 +235,6 @@ slides.forEach(slide => {
         });
       }
     }
-
     const tabsHandler = (path) => {
       tabsContent.forEach(el => {el.classList.remove('active')});
       slide.querySelector(`[data-tabs-target="${path}"]`).classList.add('active');
@@ -264,13 +243,11 @@ slides.forEach(slide => {
 });
 
 const allModals = document.querySelectorAll('.modal');
-
 const callBtns = document.querySelectorAll('[data-btn="call-master"]');
 const qeoBtns = document.querySelectorAll('[data-btn="geo-btn"]');
 const callModal = document.querySelector('[data-modal="master"]');
 const qeoModal = document.querySelector('[data-modal="map-master"]');
 const overlay = document.querySelector('.overlay');
-
 const callCloses = document.querySelectorAll('.call-modal__close');
 const geoCloses = document.querySelectorAll('.geo-modal__close');
 
@@ -289,7 +266,6 @@ for (const callClose of callCloses) {
   })
 }
 
-
 for (const qeoBtn of qeoBtns) {
   qeoBtn.addEventListener('click', function(e) {
     e.preventDefault();
@@ -306,34 +282,181 @@ for (const geoClose of geoCloses) {
 }
 
 document.onclick = function(e){
-    if ( event.target.querySelector('.modal')) {
-      for (const allModal of allModals) {
-        allModal.classList.remove('active');
-      }
-      overlay.classList.remove('active');
+  if ( e.target.querySelector('.modal')) {
+    for (const allModal of allModals) {
+      allModal.classList.remove('active');
+    }
+    overlay.classList.remove('active');
+  };
+};
+
+const hoverItems = document.querySelectorAll('.desctop-menu__item');
+hoverItems.forEach(function(hoverItem) {
+  hoverItem.addEventListener('mouseenter', function(event){
+    let currentItem = event.currentTarget;
+    let target = event.relatedTarget.closest('li');
+    if(target.classList.contains('active')) {
+      target.classList.remove('active');
     };
+    currentItem.classList.add('active');
+  });
+});
+
+function priceMore(){
+  let moreBtn = document.querySelector('.price-sec__button');
+  let moreLists = [...document.querySelectorAll('.price-sec__list')];
+  let secondClick = false;
+  if (moreBtn) {
+    moreBtn.addEventListener('click', function(){
+      if (secondClick) {
+        moreBtn.innerHTML = 'все неисправности';
+        for (const moreList of moreLists) {
+          moreList.style.maxHeight = null;
+        }
+        secondClick = false;
+      } else {
+        moreBtn.innerHTML = 'скрыть';
+        for (const moreList of moreLists) {
+          moreList.style.maxHeight = moreList.scrollHeight + "px";
+        }
+        secondClick = true;
+      };
+    });
+  }
 };
 
 
-// function fadeIn(el, display) {
-//   el.style.opacity = 0;
-//   el.style.display = display || 'block';
-//   (function fade() {
-//       var val = parseFloat(el.style.opacity);
-//       if (!((val += .1) > 1)) {
-//           el.style.opacity = val;
-//           requestAnimationFrame(fade);
-//       }
-//   })();
-// }
 
-// function fadeOut(el) {
-//   el.style.opacity = 1;
-//   (function fade() {
-//       if ((el.style.opacity -= .1) < 0) {
-//           el.style.display = 'none';
-//       } else {
-//           requestAnimationFrame(fade);
-//       }
-//   })();
-// };
+function galeryMore(){
+  let moreBtn = document.querySelector('.reviews-sec__more');
+  let moreLists = [...document.querySelectorAll('.reviews-sec__box')];
+  let secondClick = false;
+  if (moreBtn) {
+    moreBtn.addEventListener('click', function(){
+      if (secondClick) {
+        moreBtn.innerHTML = 'Смотреть все отзывы';
+        for (const moreList of moreLists) {
+          moreList.style.maxHeight = null;
+        }
+        secondClick = false;
+      } else {
+        moreBtn.innerHTML = 'скрыть';
+        for (const moreList of moreLists) {
+          moreList.style.maxHeight = moreList.scrollHeight + "px";
+        }
+        secondClick = true;
+      };
+    });
+  }
+};
+
+
+const replaceItem = document.querySelector('.roster-box');
+const replaceParrent = document.querySelector('.master-sec__box');
+const newParrent = document.querySelector('.wrapper');
+
+const certSliderContainer = document.querySelector('.contact-sert__inner');
+const contactSliderContainer = document.querySelector('.contact-first__slider');
+
+function replaceRoster(){
+  if (document.documentElement.clientWidth <= 767 ) {
+    newParrent && newParrent.insertAdjacentElement("beforeend", replaceItem);
+
+  } else {
+    replaceParrent && replaceParrent.insertAdjacentElement("beforeend", replaceItem);
+  }
+}
+
+function addClassForMobileSliders(){
+  if (document.documentElement.clientWidth <= 767) {
+    contactSliderContainer && contactSliderContainer.classList.add('swiper-container');
+    certSliderContainer && certSliderContainer.classList.add('swiper-container')
+  } else {
+    contactSliderContainer && contactSliderContainer.classList.remove('swiper-container');
+    certSliderContainer && certSliderContainer.classList.remove('swiper-container')
+  }
+}
+
+
+document.addEventListener('DOMContentLoaded', function(){
+  replaceRoster();
+  priceMore();
+  galeryMore();
+  addClassForMobileSliders();
+  initMobilesliders()
+});
+window.addEventListener('resize', function(){
+  replaceRoster();
+  priceMore();
+  galeryMore();
+  addClassForMobileSliders();
+  initMobilesliders()
+});
+
+function initMobilesliders() {
+
+  const breakpoint = window.matchMedia( '(min-width:767px)' );
+
+  let mySwiper;
+  const breakpointChecker = function() {
+
+  if ( breakpoint.matches === true ) {
+
+    if ( mySwiper !== undefined) mySwiper.destroy( true, true );
+      return;
+
+      // else if a small viewport and single column layout needed
+    } else if ( breakpoint.matches === false ) {
+
+      // fire small viewport version of swiper
+      return enableSwiper();
+    }
+  };
+
+  const enableSwiper = function() {
+    mySwiper = new Swiper(".contact-first__slider", {
+      spaceBetween: 10,
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+      navigation: {
+        nextEl: ".contact-first__next",
+        prevEl: ".contact-first__prev",
+      },
+    });
+
+    mySwiper = new Swiper(".contact-sert__inner", {
+      spaceBetween: 10,
+      centeredSlides: true,
+      slidesPerView: 1.6,
+      loop: true,
+      slidesPerGroup: 1,
+    });
+
+  };
+
+
+  // keep an eye on viewport size changes
+  breakpoint.addListener(breakpointChecker);
+
+  // kickstart
+  breakpointChecker();
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // contactSlider.on('beforeDestroy', function () {
+  //   console.log('slide changed');
+  // });
+
+

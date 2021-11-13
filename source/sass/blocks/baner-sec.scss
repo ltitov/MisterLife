@@ -55,6 +55,7 @@
   max-width: 450px;
   width: 100%;
   background: $color--w;
+  border-radius: 3px;
 
   .select__header {
     width: fit-content;
@@ -63,7 +64,7 @@
   input {
     height: 100%;
     border: none;
-
+    border-radius: 3px;
     font-family: $font-family1;
     font-style: normal;
     font-weight: normal;
@@ -119,4 +120,21 @@
   svg {
     transform: rotate(-90deg);
   }
+}
+
+.whatsapp ,.callback-form__order svg {
+  display: none;
+}
+
+.whatsapp {
+  justify-content: center;
+
+  align-items: center;
+  background: #09D743;
+  border-radius: 0px 3px 3px 0px;
+  height: 100%;
+}
+
+.callback-form--about {
+  display: none;
 }

@@ -2,6 +2,7 @@ header {
   padding: 20px 0;
   background: $color--w;
   position: relative;
+  // z-index: 50;
 }
 
 
@@ -17,10 +18,8 @@ header {
   }
 }
 
-// .header-nav {
-//   display: flex;
-//   align-items: center;
-//   grid-gap: 12px;
+// .header-nav__item {
+//   z-index: 0;
 // }
 
 .header-nav__list {
@@ -35,6 +34,19 @@ header {
     font-size: 18px;
     line-height: 22px;
     color: $text--b;
+    position: relative;
+
+    &::before {
+      left: 0;
+      width: 0;
+      transition: all .4s;
+      height: 2px;
+      content: '';
+      position: absolute;
+      background-color: $color--a;
+      opacity: .7;
+      bottom: -2px;
+    }
   }
 }
 
@@ -68,18 +80,43 @@ header {
   transform: translateX(-50%);
   width: 100%;
   background: #EDF3F6;
+  opacity: 0;
   top: 0;
   z-index: 10;
-  margin-top: 60px;
+  margin-top: 70px;
+  transition: all .4s;
+  pointer-events: none;
+  visibility: hidden;
 
   &::before {
     content: '';
-    width: 230px;
-    height: 60px;
+    width: 100%;
+    height: 37px;
     position: absolute;
     background-color: transparent;
-    top: -60px;
+    top: -37px;
     z-index: 20;
+  }
+
+  // &::after {
+  //   content: '';
+  //   left: -100vw;
+  //   right: -100vw;
+  //   background: rgba(62, 62, 62, 0.8);
+  //   position: absolute;
+  //   z-index: -100;
+  //   top: 0;
+  //   bottom: -100vh;
+  //   pointer-events: none;
+  // }
+}
+
+.header-nav__menu:hover {
+  .desctop-menu {
+    transform: translateX(-50%);
+    opacity: 1;
+    pointer-events: initial;
+    visibility: visible;
   }
 }
 
@@ -140,6 +177,16 @@ header {
     top: 50%;
     transform: translate(0, -50%);
     left: 0px;
+    transition: all .1s;
+  }
+
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: #3C93F0;
+
+    &::before {
+      transform: translate(0, -50%) scale(1.7);
+    }
   }
 }
 
@@ -162,7 +209,8 @@ header {
 }
 
 
-.desctop-menu__item:hover {
+.desctop-menu__item:hover,
+.desctop-menu__item.active {
   background-color: #fff;
 
 
@@ -177,29 +225,24 @@ header {
     z-index: 2;
     opacity: 1;
     display: block;
-  }
-}
-
-.desctop-menu {
-  display: none;
-}
-
-.header-nav__menu:hover {
-  .desctop-menu {
-    display: block;
-
 
   }
 }
+
+// .desctop-menu {
+//   display: none;
+// }
+
+
 
 .header-nav__link {
   transition: all .4s;
 }
 
 .header-nav__item:hover {
-  .header-nav__link {
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 22px
+  .header-nav__link::before {
+    right: 0;
+    left: 0;
+    width: 100%;
   }
 }

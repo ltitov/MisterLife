@@ -117,6 +117,7 @@
   align-items: center;
   background-color: #fff;
   height: 40px;
+  border-radius: 3px;
 
   .select__header {
     width: 60px;
@@ -132,6 +133,7 @@
     font-size: 14px;
     line-height: 17px;
     color: $text--b;
+    border-radius: 3px;
 
     &::placeholder {
       font-family: $font-family1;

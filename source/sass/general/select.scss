@@ -2,12 +2,12 @@
   position: relative;
 }
 
-.select.is-active .select__body {
+.select.active .select__body {
   max-height: 500px;
   height: auto;
 }
 
-.select.is-active {
+.select.active {
   .select__icon {
     transform: scaleY(-1);
   }
@@ -17,8 +17,9 @@
 
   .select__header {
     box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-    padding-top: 5px;
-    margin-top: -5px;
+    // padding-top: 12px;
+    // padding-bottom: 10px;
+    // margin-top: -12px;
   }
 }
 
@@ -27,6 +28,7 @@
   display: flex;
   align-items: center;
   width: 240px;
+  height: 50px;
   padding: 0 10px;
   justify-content: flex-start;
   grid-gap: 5px;
@@ -71,7 +73,6 @@
   font-weight: normal;
   font-size: 18px;
   line-height: 22px;
-  color: #072952;
   padding: 8px 16px;
   cursor: pointer;
 }
@@ -82,7 +83,7 @@
 }
 
 .select__item:hover {
-  background-color: #00479B;
+  background-color: $color--a;
   color: #fff;
 }
 

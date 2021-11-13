@@ -50,6 +50,27 @@
     line-height: 120%;
     color: #C4C4C4;
   }
+
+  &__image {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__absolute {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    width: 46%;
+    transform: translateY(-50%);
+    z-index: -1;
+    box-shadow: -4px -2px 20px 2px rgba(0, 0, 0, 0.25);
+    height: auto;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }
 
 .center-list {

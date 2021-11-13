@@ -1,6 +1,7 @@
 .price-sec {
   padding-top: 70px;
 
+
   &__top {
     margin-bottom: 50px;
   }
@@ -140,3 +141,12 @@
     font-family: $font-family1 ;
   }
 }
+
+
+.price-sec__list {
+  max-height: 527px;
+  overflow: hidden;
+  transition: max-height .4s;
+}
+
+

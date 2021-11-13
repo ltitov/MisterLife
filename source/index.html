@@ -4,6 +4,8 @@
 <body>
   @@include('_header.html',{})
 
+
+
   <main>
     <section class="baner-sec">
       <div class="container">
@@ -62,14 +64,25 @@
                 </div>
                 <input type="tel" class="tel" required placeholder="+7 (999) 000-00-00">
                 <button type="submit" class="callback-form__order submit-btn">
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#mobile-phone'></use>
+                  </svg>
                   Заказать
                 </button>
+                <a href="#" class="whatsapp">
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#whatsaap'></use>
+                  </svg>
+                  WhatsApp
+                </a>
               </form>
             </div>
           </div>
 
           <div class="baner-sec__image">
             <picture>
+              <source type='image/webp' media='(max-width: 575px)' srcset='img/first-baner/mob.webp'>
+              <source media='(max-width: 575px)' srcset='img/first-baner/mob.png'>
               <source type='image/webp' srcset='img/first-baner/img.webp'>
               <img width='670' height='678' src='img/first-baner/img.png' alt='image'>
             </picture>
@@ -104,7 +117,7 @@
         </div>
 
         <ul class="help-sec__list">
-          <li class="help-sec__item">
+          <a href="#" class="help-sec__item">
             <h2 class="help-sec__title">
               Ремонт стиральных машин
             </h2>
@@ -128,7 +141,7 @@
                 Сильно шумит
               </li>
             </ul>
-            <a href="services_1.html" class="link-more">
+            <div class="link-more">
               <span>
                 подробнее
               </span>
@@ -136,7 +149,7 @@
               <svg width='9' height='9'>
                 <use href='img/sprite/sprite.svg#more'></use>
               </svg>
-            </a>
+            </div>
 
             <div class="help-sec__image">
               <picture>
@@ -144,9 +157,9 @@
                 <img width='200' height='230' src='img/help-sec/img.png' alt='image'>
               </picture>
             </div>
-          </li>
+          </a>
 
-          <li class="help-sec__item">
+          <a href="#" class="help-sec__item">
             <h2 class="help-sec__title">
               Ремонт хлодильников
             </h2>
@@ -170,7 +183,7 @@
                 Намерзает лед
               </li>
             </ul>
-            <a href="#" class="link-more">
+            <div class="link-more">
               <span>
                 подробнее
               </span>
@@ -178,7 +191,7 @@
               <svg width='9' height='9'>
                 <use href='img/sprite/sprite.svg#more'></use>
               </svg>
-            </a>
+            </div>
 
             <div class="help-sec__image">
               <picture>
@@ -186,9 +199,9 @@
                 <img width='200' height='230' src='img/help-sec/img2.png' alt='image'>
               </picture>
             </div>
-          </li>
+          </a>
 
-          <li class="help-sec__item">
+          <a href="#" class="help-sec__item">
             <h2 class="help-sec__title">
               Ремонт посудомоечных машин
             </h2>
@@ -212,7 +225,7 @@
                 Не светится
               </li>
             </ul>
-            <a href="#" class="link-more">
+            <div class="link-more">
               <span>
                 подробнее
               </span>
@@ -220,7 +233,7 @@
               <svg width='9' height='9'>
                 <use href='img/sprite/sprite.svg#more'></use>
               </svg>
-            </a>
+            </div>
 
             <div class="help-sec__image">
               <picture>
@@ -228,7 +241,7 @@
                 <img width='200' height='230' src='img/help-sec/img3.png' alt='image'>
               </picture>
             </div>
-          </li>
+          </a>
         </ul>
       </div>
     </section>
@@ -250,6 +263,21 @@
 
         </div>
 
+        <div class="main-top master-sec__mobile">
+          <h2 class="main-top__title">
+            Как быстро приедем?
+          </h2>
+
+          <span class="main-top__descr">
+            У нас довольно обширный штат мастеров в Москве и Московской области, что бы точнее вас соорентировать воспользуйтесь картой.
+          </span>
+
+          <svg width='22' height='24'>
+            <use href='img/sprite/sprite.svg#anhor'></use>
+          </svg>
+
+        </div>
+
         <div class="master-sec__box">
           <div class="master-sec__wrapper">
 
@@ -262,6 +290,16 @@
                 Введите ваш адрес, и узнайте где ближайший наш мастер. И рассчет время прибытия.
               </span>
             </div>
+
+
+            <div class="master-sec__mobile-image">
+              <picture>
+                <source type='image/webp' srcset='img/master-sec/map-mobile.webp'>
+                <img width='300' height='280' src='img/master-sec/map-mobile.png' alt='map-mobile'>
+              </picture>
+            </div>
+
+
 
             <form action="#" class="master-sec__form">
               <fieldset class="master-sec__fildset">
@@ -333,7 +371,7 @@
                   <div class="master-slide__image">
                     <picture>
                       <source type='image/webp' srcset='img/master-sec/image-master.webp'>
-                      <img width='232' height='300' src='img/master-sec/image-master.png' alt='image'>
+                      <img width='200' height='200' src='img/master-sec/image-master.png' alt='image'>
                     </picture>
                   </div>
                 </div>
@@ -349,38 +387,10 @@
               <div class="master-slide__wrapper">
                 <div class="master-slide__top">
                   <h2 class="master-slide__title">
-                    Олег Самсонов
+                    Александр Корякин
                   </h2>
                   <span class="master-slide__descr">
-                    7 лет опыта
-                  </span>
-                  <p class="master-slide__text">
-                    Мастер по ремонту стиральным машин
-                    и посудомоечных машин
-                  </p>
-                  <div class="master-slide__image">
-                    <picture>
-                      <source type='image/webp' srcset='img/master-sec/image-master.webp'>
-                      <img width='232' height='300' src='img/master-sec/image-master.png' alt='image'>
-                    </picture>
-                  </div>
-                </div>
-                <article class="master-slide__bottom">
-                  <p>
-                    Занимаюсь ремонтом стиральных машин уже 7 лет,  потому что решил когда-то почить свою. Отучился на профильном курсе в иституте М.И. Баумана.
-                  </p>
-                </article>
-              </div>
-            </li>
-
-            <li class="master-slide swiper-slide">
-              <div class="master-slide__wrapper">
-                <div class="master-slide__top">
-                  <h2 class="master-slide__title">
-                    Олег Самсонов
-                  </h2>
-                  <span class="master-slide__descr">
-                    7 лет опыта
+                    12 лет опыта
                   </span>
                   <p class="master-slide__text">
                     Мастер по ремонту стиральным машин
@@ -389,13 +399,13 @@
                   <div class="master-slide__image">
                     <picture>
                       <source type='image/webp' srcset='img/master-sec/image-master2.webp'>
-                      <img width='215' height='250' src='img/master-sec/image-master2.png' alt='image'>
+                      <img width='200' height='100%' src='img/master-sec/image-master2.png' alt='image'>
                     </picture>
                   </div>
                 </div>
                 <article class="master-slide__bottom">
                   <p>
-                    Занимаюсь ремонтом стиральных машин уже 7 лет,  потому что решил когда-то почить свою. Отучился на профильном курсе в иституте М.И. Баумана.
+                    Работал в официальных сервисах как стационарных так и выездных. За плечами огромный опыт. Восстанавливали даже то за что другие не хотели браться.
                   </p>
                 </article>
               </div>
@@ -405,10 +415,92 @@
               <div class="master-slide__wrapper">
                 <div class="master-slide__top">
                   <h2 class="master-slide__title">
-                    Олег Самсонов
+                    Эдуард Товмосян
+                  </h2>
+                  <span class="master-slide__descr">
+                    9 лет опыта
+                  </span>
+                  <p class="master-slide__text">
+                    Мастер по ремонту холодильников и морозильных камер
+                  </p>
+                  <div class="master-slide__image">
+                    <picture>
+                      <source type='image/webp' srcset='img/master-sec/image-master3.webp'>
+                      <img width='167' height='100%' src='img/master-sec/image-master3.png' alt='image'>
+                    </picture>
+                  </div>
+                </div>
+                <article class="master-slide__bottom">
+                  <p>
+                    Гражданин РФ, по профессии инженер холодильного оборудования и систем кондиционирования - Разряд 4. На постоянной основе нахожусь в МОСКВЕ.
+                  </p>
+                </article>
+              </div>
+            </li>
+
+            <li class="master-slide swiper-slide">
+              <div class="master-slide__wrapper">
+                <div class="master-slide__top">
+                  <h2 class="master-slide__title">
+                    Семен Лакинов
+                  </h2>
+                  <span class="master-slide__descr">
+                    5 лет опыта
+                  </span>
+                  <p class="master-slide__text">
+                    Мастер по ремонту холодильников и морозильных камер
+                  </p>
+                  <div class="master-slide__image">
+                    <picture>
+                      <source type='image/webp' srcset='img/master-sec/image-master4.webp'>
+                      <img width='184' height='100%' src='img/master-sec/image-master4.png' alt='image'>
+                    </picture>
+                  </div>
+                </div>
+                <article class="master-slide__bottom">
+                  <p>
+                    Опыт ремонта бытового холодильного оборудования 5 лет. Имею специальное образование, в т.ч. дополнительное радиотехническое.
+                  </p>
+                </article>
+              </div>
+            </li>
+
+            <li class="master-slide swiper-slide">
+              <div class="master-slide__wrapper">
+                <div class="master-slide__top">
+                  <h2 class="master-slide__title">
+                    Максим Рожков
                   </h2>
                   <span class="master-slide__descr">
                     7 лет опыта
+                  </span>
+                  <p class="master-slide__text">
+                    Мастер по ремонту стиральным машин
+                    и сушильных машин
+                  </p>
+                  <div class="master-slide__image">
+                    <picture>
+                      <source type='image/webp' srcset='img/master-sec/image-master5.webp'>
+                      <img width='153' height='100%' src='img/master-sec/image-master5.png' alt='image'>
+                    </picture>
+                  </div>
+                </div>
+                <article class="master-slide__bottom">
+                  <p>
+                    Для меня важно что бы клиент оставался доволен и рекомендовал меня своим друзьям и родственникам, поэтому для меня, на первом месте, человеческое отношение.
+                  </p>
+                </article>
+              </div>
+            </li>
+
+            <li class="master-slide swiper-slide">
+              <div class="master-slide__wrapper">
+                <div class="master-slide__top">
+                  <h2 class="master-slide__title">
+                    Владимир Каменских
+                  </h2>
+                  <span class="master-slide__descr">
+                    6 лет опыта
                   </span>
                   <p class="master-slide__text">
                     Мастер по ремонту стиральным машин
@@ -416,14 +508,42 @@
                   </p>
                   <div class="master-slide__image">
                     <picture>
-                      <source type='image/webp' srcset='img/master-sec/image-master3.webp'>
-                      <img width='215' height='250' src='img/master-sec/image-master3.png' alt='image'>
+                      <source type='image/webp' srcset='img/master-sec/image-master6.webp'>
+                      <img width='150' height='100%' src='img/master-sec/image-master6.png' alt='image'>
                     </picture>
                   </div>
                 </div>
                 <article class="master-slide__bottom">
                   <p>
-                    Занимаюсь ремонтом стиральных машин уже 7 лет,  потому что решил когда-то почить свою. Отучился на профильном курсе в иституте М.И. Баумана.
+                    Раньше я работал сварщиком, но потом закончил профильные курсы. Имею сертификаты офицальных брендов: Electrolux, Bosch, Samsung и Miele.
+                  </p>
+                </article>
+              </div>
+            </li>
+
+            <li class="master-slide swiper-slide">
+              <div class="master-slide__wrapper">
+                <div class="master-slide__top">
+                  <h2 class="master-slide__title">
+                    Николай Вемсков
+                  </h2>
+                  <span class="master-slide__descr">
+                    10 лет опыта
+                  </span>
+                  <p class="master-slide__text">
+                    Мастер по ремонту стиральным машин
+                    и посудомоечных машин
+                  </p>
+                  <div class="master-slide__image">
+                    <picture>
+                      <source type='image/webp' srcset='img/master-sec/image-master7.webp'>
+                      <img width='189' height='100%' src='img/master-sec/image-master7.png' alt='image'>
+                    </picture>
+                  </div>
+                </div>
+                <article class="master-slide__bottom">
+                  <p>
+                    Опыт работы 10 лет в сервисных центрах по ремонту холодильников всех марок, любой сложности. Замена компрессора, термостата, реле, модуля, датчиков..
                   </p>
                 </article>
               </div>
@@ -968,6 +1088,29 @@
                   <img class="img-responsive" width='190' height='140' src='img/reviews/thumb-17.png' alt='Thumb-17'>
                 </picture>
             </a>
+            <div class="caption">
+              <div class="caption-inner">
+                <div class="caption-inner__top">
+                  <h2 class="caption-inner__title">
+                    <svg width='60' height='25'>
+                      <use href='img/sprite/sprite.svg#rait'></use>
+                    </svg>
+                    Виктория
+                  </h2>
+
+                  <span class="caption-inner__info">
+                    Оставленно через письмо
+                  </span>
+                </div>
+
+                <article class="caption-inner__article">
+                  <p class="caption-inner__text">
+                    Спасибо MR.БЫТ, мастер приехал в четко назначенное время и устранил течь за 30 минут, и обьяснил какие средства лучше использовать. Мой супруг гонял по программам машинку целый день. Обслуживание осталась довольна полностью от вежливых оператов, и отдельно хочу поблагодарить мастера Степана за его честно выполненую работу.
+                  </p>
+                </article>
+
+              </div>
+            </div>
           </li>
           <li class="reviews-sec__item" data-src="img/reviews/thumb-18.png" data-sub-html=".caption">
             <a href="#">

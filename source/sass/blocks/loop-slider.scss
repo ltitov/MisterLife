@@ -2,9 +2,10 @@
   background: #FFFFFF;
   border: 2px solid #F1F1F1;
   border-radius: 3px;
-  max-width: 290px;
+  width: 290px !important;
   min-height: 258px;
   padding: 30px;
+  box-sizing: border-box;
   display: grid;
   cursor: pointer;
   flex-shrink: 0;

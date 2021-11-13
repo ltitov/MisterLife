@@ -5,6 +5,10 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 20px;
+
+  }
+
+  &__slider {
     margin-bottom: 60px;
   }
 

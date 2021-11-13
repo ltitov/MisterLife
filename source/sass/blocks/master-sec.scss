@@ -24,6 +24,7 @@
     background: $color--w;
     max-width: 390px;
     width: 100%;
+    border-radius: 3px;
 
     input {
       border: none;
@@ -34,6 +35,7 @@
       font-size: 14px;
       line-height: 17px;
       color: $text--b;
+      border-radius: 3px;
 
       &::placeholder {
         font-family: $font-family1;
@@ -52,10 +54,13 @@
   }
 
   &__button {
-    width: 120px;
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
+    text-transform: uppercase;
+    max-width: 120px;
+    width: 100%;
+    flex-shrink: 0;
   }
 
   &__descr {
@@ -286,3 +291,10 @@
 .master-sec__prev {
   left: -40px;
 }
+
+
+.master-sec__mobile, .master-sec__mobile-image {
+  display: none;
+}
+
+

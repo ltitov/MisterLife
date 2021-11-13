@@ -31,14 +31,14 @@
   left: 0;
   height: 10px;
   width: 10px;
-  background: #3C93F0;
+  background: #ccc;
   border-radius: 3px;
   border: 2px solid #fff;
 }
 
 /* При наведении курсора мыши добавьте серый цвет фона */
 .checkbox-container:hover input ~ .checkmark {
-  background-color: #ccc;
+  // background-color: #ccc;
 }
 
 /* Если флажок установлен, добавьте синий фон */
