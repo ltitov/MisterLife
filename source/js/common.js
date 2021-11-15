@@ -173,8 +173,8 @@ let masterSlider = new Swiper(".master-sec__slider", {
       spaceBetween: 40,
     },
     1024: {
-      slidesPerView: 5,
-      spaceBetween: 50,
+      slidesPerView: 3,
+      spaceBetween: 15,
     },
   }
 });
@@ -194,7 +194,7 @@ if (loop) {
   let loopSlider = new Swiper(".loop-slider ", {
     spaceBetween: 20,
     loop: true,
-    centerSlides: true,
+    centeredSlides: true,
     autoPlay: {
       delay: 900,
     },
@@ -212,6 +212,22 @@ if (loop) {
         });
       }
     },
+    breakpoints: {
+      320: {
+        slidesPerView: 'auto',
+        centeredSlides: false,
+        spaceBetween: 10,
+      },
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+      1024: {
+        slidesPerView: 'auto',
+        spaceBetween: 20,
+        centeredSlides: true,
+      },
+    }
   });
 
   loopSlider.autoplay.start();
@@ -350,20 +366,61 @@ function galeryMore(){
   }
 };
 
+function scrinMore(){
+  let moreBtn = document.querySelector('.veiw-more');
+  let moreLists = [...document.querySelectorAll('.scrin-sec__list')];
+  let secondClick = false;
+  if (moreBtn) {
+    moreBtn.addEventListener('click', function(){
+      if (secondClick) {
+        moreBtn.innerHTML = 'Посмотреть еще';
+        for (const moreList of moreLists) {
+          moreList.style.maxHeight = null;
+        }
+        secondClick = false;
+      } else {
+        moreBtn.innerHTML = 'скрыть';
+        for (const moreList of moreLists) {
+          moreList.style.maxHeight = moreList.scrollHeight + "px";
+        }
+        secondClick = true;
+      };
+    });
+  }
+};
+
+
 
 const replaceItem = document.querySelector('.roster-box');
 const replaceParrent = document.querySelector('.master-sec__box');
 const newParrent = document.querySelector('.wrapper');
 
+const mapItem = document.querySelector('.geo-master__map');
+const oldGeoBox = document.querySelector('.geo-master__box');
+const newGeoBox = document.querySelector('.geo-master__item');
 const certSliderContainer = document.querySelector('.contact-sert__inner');
 const contactSliderContainer = document.querySelector('.contact-first__slider');
+
+const modalButtonOrder = document.querySelector('.order-master__button');
+const modalButtonNewWrapper = document.querySelector('.price-sec__inner');
+const modalButtonOldWrapper = document.querySelector('.order-master');
 
 function replaceRoster(){
   if (document.documentElement.clientWidth <= 767 ) {
     newParrent && newParrent.insertAdjacentElement("beforeend", replaceItem);
+    newGeoBox && newGeoBox.insertAdjacentElement("beforeend", mapItem);
+
+    if (modalButtonOldWrapper) {
+      modalButtonNewWrapper && modalButtonNewWrapper.insertAdjacentElement("beforeend", modalButtonOrder);
+    }
+
 
   } else {
     replaceParrent && replaceParrent.insertAdjacentElement("beforeend", replaceItem);
+    oldGeoBox && oldGeoBox.insertAdjacentElement("beforeend", mapItem);
+    if (modalButtonOldWrapper) {
+      modalButtonOldWrapper && modalButtonOldWrapper.insertAdjacentElement("beforeend", modalButtonOrder);
+    }
   }
 }
 
@@ -383,63 +440,67 @@ document.addEventListener('DOMContentLoaded', function(){
   priceMore();
   galeryMore();
   addClassForMobileSliders();
-  initMobilesliders()
+  initMobilesliders();
+  scrinMore();
 });
 window.addEventListener('resize', function(){
   replaceRoster();
   priceMore();
   galeryMore();
   addClassForMobileSliders();
-  initMobilesliders()
+  initMobilesliders();
+  scrinMore();
 });
 
 function initMobilesliders() {
+  if (contactSliderContainer && certSliderContainer) {
+    const breakpoint = window.matchMedia( '(min-width:767px)' );
 
-  const breakpoint = window.matchMedia( '(min-width:767px)' );
+    let mySwiper;
+    const breakpointChecker = function() {
 
-  let mySwiper;
-  const breakpointChecker = function() {
+    if ( breakpoint.matches === true ) {
 
-  if ( breakpoint.matches === true ) {
+      if ( mySwiper !== undefined) mySwiper.destroy( true, true );
+        return;
 
-    if ( mySwiper !== undefined) mySwiper.destroy( true, true );
-      return;
+        // else if a small viewport and single column layout needed
+      } else if ( breakpoint.matches === false ) {
 
-      // else if a small viewport and single column layout needed
-    } else if ( breakpoint.matches === false ) {
+        // fire small viewport version of swiper
+        return enableSwiper();
+      }
+    };
 
-      // fire small viewport version of swiper
-      return enableSwiper();
-    }
-  };
+    const enableSwiper = function() {
+      mySwiper = new Swiper(".contact-first__slider", {
+        spaceBetween: 10,
+        slidesPerView: 2,
+        slidesPerGroup: 2,
+        navigation: {
+          nextEl: ".contact-first__next",
+          prevEl: ".contact-first__prev",
+        },
+      });
 
-  const enableSwiper = function() {
-    mySwiper = new Swiper(".contact-first__slider", {
-      spaceBetween: 10,
-      slidesPerView: 2,
-      slidesPerGroup: 2,
-      navigation: {
-        nextEl: ".contact-first__next",
-        prevEl: ".contact-first__prev",
-      },
-    });
+      mySwiper = new Swiper(".contact-sert__inner", {
+        spaceBetween: 10,
+        centeredSlides: true,
+        slidesPerView: 1.6,
+        loop: true,
+        slidesPerGroup: 1,
+      });
 
-    mySwiper = new Swiper(".contact-sert__inner", {
-      spaceBetween: 10,
-      centeredSlides: true,
-      slidesPerView: 1.6,
-      loop: true,
-      slidesPerGroup: 1,
-    });
-
-  };
+    };
 
 
-  // keep an eye on viewport size changes
-  breakpoint.addListener(breakpointChecker);
+    // keep an eye on viewport size changes
+    breakpoint.addListener(breakpointChecker);
 
-  // kickstart
-  breakpointChecker();
+    // kickstart
+    breakpointChecker();
+  }
+
 };
 
 

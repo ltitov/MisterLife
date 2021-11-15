@@ -23,7 +23,7 @@
               Выезд мастера от 30 минут
             </span>
 
-            <div class="callback-form">
+            <div class="callback-form callback-form--about">
               <form action="#" class="callback-form__form">
                 <div class="callback-form__select">
                     <div class='select'>
@@ -62,8 +62,17 @@
                 </div>
                 <input type="tel" class="tel" required placeholder="+7 (999) 000-00-00">
                 <button type="submit" class="callback-form__order submit-btn">
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#mobile-phone'></use>
+                  </svg>
                   Заказать
                 </button>
+                <a href="#" class="whatsapp">
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#whatsaap'></use>
+                  </svg>
+                  WhatsApp
+                </a>
               </form>
             </div>
           </div>
@@ -1238,12 +1247,7 @@
                 </div>
               </a>
             </div>
-
-            <!-- <div class="price-sec__inner">
-              <button class="price-sec__button submit-btn">
-                Все неисправности
-              </button>
-            </div> -->
+            <div class="price-sec__inner mobile-replace-wrapper"></div>
           </div>
 
           <ul class="price-free">
@@ -2576,6 +2580,21 @@
 
         </div>
 
+        <div class="main-top master-sec__mobile">
+          <h2 class="main-top__title">
+            Как быстро приедем?
+          </h2>
+
+          <span class="main-top__descr">
+            У нас довольно обширный штат мастеров в Москве и Московской области, что бы точнее вас соорентировать воспользуйтесь картой.
+          </span>
+
+          <svg width='22' height='24'>
+            <use href='img/sprite/sprite.svg#anhor'></use>
+          </svg>
+
+        </div>
+
         <div class="master-sec__box">
           <div class="master-sec__wrapper">
 
@@ -2588,6 +2607,16 @@
                 Введите ваш адрес, и узнайте где ближайший наш мастер. И рассчет время прибытия.
               </span>
             </div>
+
+
+            <div class="master-sec__mobile-image">
+              <picture>
+                <source type='image/webp' srcset='img/master-sec/map-mobile.webp'>
+                <img width='300' height='280' src='img/master-sec/map-mobile.png' alt='map-mobile'>
+              </picture>
+            </div>
+
+
 
             <form action="#" class="master-sec__form">
               <fieldset class="master-sec__fildset">
