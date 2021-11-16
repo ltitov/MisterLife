@@ -29,7 +29,7 @@
 
   &__item {
     cursor: pointer;
-    padding: 21px 30px;
+    padding: 21px 30px 21px 50px;
     display: grid;
     grid-gap: 1px;
     border: 1px solid #EDF3F6;
@@ -54,6 +54,28 @@
   &__list {
     display: grid;
     grid-gap: 20px;
+
+    counter-reset: li;
+
+    li .chose-tabs__name {
+      list-style: none;
+      list-style-position: outside;
+      position: relative;
+
+      &::before {
+        content: counter(li, decimal) ".";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        left: -20px;
+        font-weight: 700;
+        font-size: inherit;
+        line-height: 100%;
+        color: currentColor;
+
+        counter-increment: li;
+      }
+    }
   }
 
   &__content {

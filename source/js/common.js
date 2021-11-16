@@ -169,8 +169,10 @@ let masterSlider = new Swiper(".master-sec__slider", {
       spaceBetween: 15,
     },
     768: {
-      slidesPerView: 4,
-      spaceBetween: 40,
+      slidesPerView: 'auto',
+      spaceBetween: 14,
+      centeredSlides: true,
+      initialSlide: 1,
     },
     1024: {
       slidesPerView: 3,
@@ -186,6 +188,21 @@ let lookSlider = new Swiper(".look-slider", {
     nextEl: ".look-next",
     prevEl: ".look-prev",
   },
+  breakpoints: {
+    320: {
+      slidesPerView: 1,
+      centerSlides: true,
+      spaceBetween: 15,
+    },
+    576: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+  }
 });
 
 const loop = document.querySelector('.loop-slider');
@@ -389,6 +406,29 @@ function scrinMore(){
   }
 };
 
+function brandMore(){
+  let moreBtn = document.querySelector('.brand-sec__more');
+  let moreLists = [...document.querySelectorAll('.brand-sec__list')];
+  let secondClick = false;
+  if (moreBtn) {
+    moreBtn.addEventListener('click', function(){
+      if (secondClick) {
+        moreBtn.innerHTML = 'показать все';
+        for (const moreList of moreLists) {
+          moreList.style.maxHeight = null;
+        }
+        secondClick = false;
+      } else {
+        moreBtn.innerHTML = 'скрыть';
+        for (const moreList of moreLists) {
+          moreList.style.maxHeight = moreList.scrollHeight + "px";
+        }
+        secondClick = true;
+      };
+    });
+  }
+};
+
 
 
 const replaceItem = document.querySelector('.roster-box');
@@ -400,6 +440,7 @@ const oldGeoBox = document.querySelector('.geo-master__box');
 const newGeoBox = document.querySelector('.geo-master__item');
 const certSliderContainer = document.querySelector('.contact-sert__inner');
 const contactSliderContainer = document.querySelector('.contact-first__slider');
+const centerSliderContainer = document.querySelector('.center-sec__mobile-wrapper');
 
 const modalButtonOrder = document.querySelector('.order-master__button');
 const modalButtonNewWrapper = document.querySelector('.price-sec__inner');
@@ -427,10 +468,12 @@ function replaceRoster(){
 function addClassForMobileSliders(){
   if (document.documentElement.clientWidth <= 767) {
     contactSliderContainer && contactSliderContainer.classList.add('swiper-container');
-    certSliderContainer && certSliderContainer.classList.add('swiper-container')
+    certSliderContainer && certSliderContainer.classList.add('swiper-container');
+    centerSliderContainer && centerSliderContainer.classList.add('swiper-container');
   } else {
     contactSliderContainer && contactSliderContainer.classList.remove('swiper-container');
-    certSliderContainer && certSliderContainer.classList.remove('swiper-container')
+    certSliderContainer && certSliderContainer.classList.remove('swiper-container');
+    centerSliderContainer && centerSliderContainer.classList.remove('swiper-container');
   }
 }
 
@@ -442,6 +485,7 @@ document.addEventListener('DOMContentLoaded', function(){
   addClassForMobileSliders();
   initMobilesliders();
   scrinMore();
+  brandMore();
 });
 window.addEventListener('resize', function(){
   replaceRoster();
@@ -450,28 +494,23 @@ window.addEventListener('resize', function(){
   addClassForMobileSliders();
   initMobilesliders();
   scrinMore();
+  brandMore();
 });
 
 function initMobilesliders() {
-  if (contactSliderContainer && certSliderContainer) {
-    const breakpoint = window.matchMedia( '(min-width:767px)' );
-
+  if (contactSliderContainer) {
+    const breakpoint = window.matchMedia( '(min-width:768px)' );
     let mySwiper;
     const breakpointChecker = function() {
-
     if ( breakpoint.matches === true ) {
-
       if ( mySwiper !== undefined) mySwiper.destroy( true, true );
         return;
-
         // else if a small viewport and single column layout needed
       } else if ( breakpoint.matches === false ) {
-
         // fire small viewport version of swiper
         return enableSwiper();
       }
     };
-
     const enableSwiper = function() {
       mySwiper = new Swiper(".contact-first__slider", {
         spaceBetween: 10,
@@ -482,7 +521,27 @@ function initMobilesliders() {
           prevEl: ".contact-first__prev",
         },
       });
+    };
+    // keep an eye on viewport size changes
+    breakpoint.addListener(breakpointChecker);
+    // kickstart
+    breakpointChecker();
+  }
 
+  if (certSliderContainer) {
+    const breakpoint = window.matchMedia( '(min-width:768px)' );
+    let mySwiper;
+    const breakpointChecker = function() {
+    if ( breakpoint.matches === true ) {
+      if ( mySwiper !== undefined) mySwiper.destroy( true, true );
+        return;
+        // else if a small viewport and single column layout needed
+      } else if ( breakpoint.matches === false ) {
+        // fire small viewport version of swiper
+        return enableSwiper();
+      }
+    };
+    const enableSwiper = function() {
       mySwiper = new Swiper(".contact-sert__inner", {
         spaceBetween: 10,
         centeredSlides: true,
@@ -490,13 +549,49 @@ function initMobilesliders() {
         loop: true,
         slidesPerGroup: 1,
       });
-
     };
-
-
     // keep an eye on viewport size changes
     breakpoint.addListener(breakpointChecker);
+    // kickstart
+    breakpointChecker();
+  }
 
+  if (centerSliderContainer) {
+    const breakpoint = window.matchMedia( '(min-width:768px)' );
+    let mySwiper;
+    const breakpointChecker = function() {
+    if ( breakpoint.matches === true ) {
+      if ( mySwiper !== undefined) mySwiper.destroy( true, true );
+        return;
+        // else if a small viewport and single column layout needed
+      } else if ( breakpoint.matches === false ) {
+        // fire small viewport version of swiper
+        return enableSwiper();
+      }
+    };
+    const enableSwiper = function() {
+      mySwiper = new Swiper(".center-sec__mobile-wrapper", {
+        spaceBetween: 20,
+        slidesPerView: 1,
+        slidesPerGroup: 1,
+        pagination: {
+          el: ".center-sec__dots",
+          clickable: true,
+        },
+        breakpoints: {
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          567: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+        }
+      });
+    };
+    // keep an eye on viewport size changes
+    breakpoint.addListener(breakpointChecker);
     // kickstart
     breakpointChecker();
   }

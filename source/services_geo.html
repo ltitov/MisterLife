@@ -23,7 +23,7 @@
               Выезд мастера от 30 минут
             </span>
 
-            <div class="callback-form">
+            <div class="callback-form callback-form--about">
               <form action="#" class="callback-form__form">
                 <div class="callback-form__select">
                     <div class='select'>
@@ -62,8 +62,17 @@
                 </div>
                 <input type="tel" class="tel" required placeholder="+7 (999) 000-00-00">
                 <button type="submit" class="callback-form__order submit-btn">
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#mobile-phone'></use>
+                  </svg>
                   Заказать
                 </button>
+                <a href="#" class="whatsapp">
+                  <svg width='20' height='20'>
+                    <use href='img/sprite/sprite.svg#whatsaap'></use>
+                  </svg>
+                  WhatsApp
+                </a>
               </form>
             </div>
           </div>
@@ -114,53 +123,62 @@
 
           </article>
         </div>
-        <ul class="center-sec__botom center-list">
-          <li class="center-list__item">
-            <span class="center-list__top">
-              2005
-              <small class="center-list__small">
-                Год
-              </small>
-            </span>
-            <span class="center-list__bottom">
-              Получение сертификации от официального бренда
-            </span>
-          </li>
-          <li class="center-list__item">
-            <span class="center-list__top">
-              27
-              <small class="center-list__small">
-                специалистов
-              </small>
-            </span>
-            <span class="center-list__bottom">
-              Прошедших сертификацию “BOSCH”
-            </span>
-          </li>
 
-          <li class="center-list__item">
-            <span class="center-list__top">
-              1 500
-              <small class="center-list__small">
-                тысячи
-              </small>
-            </span>
-            <span class="center-list__bottom">
-              Заказов на ремонт техники “BOSCH”
-            </span>
-          </li>
-          <li class="center-list__item">
-            <span class="center-list__top">
-              98%
-              <small class="center-list__small">
-                клиентов
-              </small>
-            </span>
-            <span class="center-list__bottom">
-              Возвращаются к нам повторно за помощью
-            </span>
-          </li>
-        </ul>
+        <div class="center-sec__mobile-wrapper">
+          <ul class="center-sec__botom center-list swiper-wrapper">
+            <li class="center-list__item swiper-slide">
+              <span class="center-list__top">
+                2005
+                <small class="center-list__small">
+                  Год
+                </small>
+              </span>
+              <span class="center-list__bottom">
+                Получение сертификации от официального бренда
+              </span>
+            </li>
+            <li class="center-list__item swiper-slide">
+              <span class="center-list__top">
+                27
+                <small class="center-list__small">
+                  специалистов
+                </small>
+              </span>
+              <span class="center-list__bottom">
+                Прошедших сертификацию “BOSCH”
+              </span>
+            </li>
+
+            <li class="center-list__item swiper-slide">
+              <span class="center-list__top">
+                1 500
+                <small class="center-list__small">
+                  тысячи
+                </small>
+              </span>
+              <span class="center-list__bottom">
+                Заказов на ремонт техники “BOSCH”
+              </span>
+            </li>
+            <li class="center-list__item swiper-slide">
+              <span class="center-list__top">
+                98%
+                <small class="center-list__small">
+                  клиентов
+                </small>
+              </span>
+              <span class="center-list__bottom">
+                Возвращаются к нам повторно за помощью
+              </span>
+            </li>
+          </ul>
+
+          <div class="center-sec__dots"></div>
+
+        </div>
+
+
+
 
       </div>
     </section>
@@ -284,11 +302,11 @@
               </a>
             </div>
 
-            <!-- <div class="price-sec__inner">
-              <button class="price-sec__button submit-btn">
-                Все неисправности
+            <div class="price-sec__inner mobile-replace-wrapper">
+              <button class="order-master__button submit-btn" data-btn='call-master'>
+                Вызвать мастера
               </button>
-            </div> -->
+            </div>
           </div>
 
           <ul class="price-free">
