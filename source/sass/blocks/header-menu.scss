@@ -55,9 +55,12 @@
   background: #FFFFFF;
   position: fixed;
   right: 0;
-  height: calc(100vh - 41px);
+  bottom: 0;
+  height: calc(100% - 41px);
   top: 41px;
   z-index: 100;
+  overflow-y: scroll;
+
   transition: all .4s;
   flex-direction: column;
   justify-content: space-between;
@@ -206,5 +209,40 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1240px) {
+  header {
+    .container {
+      padding: 0 Min( 2vw, 80px) !important;
+    }
+  }
 
+  .header-logo {
+    max-width: 120px;
+
+    width: 9.766vw;
+
+    svg {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  .header-nav__list {
+    grid-gap: clamp(20px, 1.953vw ,40px);
+  }
+
+  .header-nav__list .header-nav__link {
+    font-size: clamp(16px, 1.563vw ,18px);
+  }
+
+  .header-phone {
+    font-size: clamp(20px,1.563vw ,28px);
+  }
+
+  .header__right {
+    grid-gap: clamp(15px, 1.465vw ,20px);
+  }
+
+  .desctop-menu {
+    margin-top: 4%;
+  }
 }

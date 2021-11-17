@@ -370,46 +370,59 @@ function galeryMore(){
   let moreBtn = document.querySelector('.reviews-sec__more');
   let moreLists = [...document.querySelectorAll('.reviews-sec__box')];
   let secondClick = false;
-  if (moreBtn) {
-    moreBtn.addEventListener('click', function(){
-      if (secondClick) {
-        moreBtn.innerHTML = 'Смотреть все отзывы';
-        for (const moreList of moreLists) {
-          moreList.style.maxHeight = null;
-        }
-        secondClick = false;
-      } else {
-        moreBtn.innerHTML = 'скрыть';
-        for (const moreList of moreLists) {
-          moreList.style.maxHeight = moreList.scrollHeight + "px";
-        }
-        secondClick = true;
-      };
-    });
+
+  if (document.documentElement.clientWidth < 1239 ) {
+    if (moreBtn) {
+      moreBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        if (secondClick) {
+          moreBtn.innerHTML = 'Смотреть все отзывы';
+          for (const moreList of moreLists) {
+            moreList.style.maxHeight = null;
+          }
+          secondClick = false;
+        } else {
+          moreBtn.innerHTML = 'скрыть';
+          for (const moreList of moreLists) {
+            moreList.style.maxHeight = moreList.scrollHeight + "px";
+          }
+          secondClick = true;
+        };
+      });
+    }
   }
+
+
+
 };
 
 function scrinMore(){
   let moreBtn = document.querySelector('.veiw-more');
   let moreLists = [...document.querySelectorAll('.scrin-sec__list')];
   let secondClick = false;
-  if (moreBtn) {
-    moreBtn.addEventListener('click', function(){
-      if (secondClick) {
-        moreBtn.innerHTML = 'Посмотреть еще';
-        for (const moreList of moreLists) {
-          moreList.style.maxHeight = null;
-        }
-        secondClick = false;
-      } else {
-        moreBtn.innerHTML = 'скрыть';
-        for (const moreList of moreLists) {
-          moreList.style.maxHeight = moreList.scrollHeight + "px";
-        }
-        secondClick = true;
-      };
-    });
+
+  if (document.documentElement.clientWidth < 1239 ) {
+    if (moreBtn) {
+      moreBtn.addEventListener('click', function(e){
+        e.preventDefault()
+        if (secondClick) {
+          moreBtn.innerHTML = 'Посмотреть еще';
+          for (const moreList of moreLists) {
+            moreList.style.maxHeight = null;
+          }
+          secondClick = false;
+        } else {
+          moreBtn.innerHTML = 'скрыть';
+          for (const moreList of moreLists) {
+            moreList.style.maxHeight = moreList.scrollHeight + "px";
+          }
+          secondClick = true;
+        };
+      });
+    }
   }
+
+
 };
 
 function brandMore(){
