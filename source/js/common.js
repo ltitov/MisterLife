@@ -176,7 +176,8 @@ let masterSlider = new Swiper(".master-sec__slider", {
     },
     1024: {
       slidesPerView: 3,
-      spaceBetween: 15,
+      spaceBetween: 18,
+      centeredSlides: false,
     },
   }
 });
@@ -198,9 +199,9 @@ let lookSlider = new Swiper(".look-slider", {
       slidesPerView: 2,
       spaceBetween: 20,
     },
-    1024: {
+    768: {
       slidesPerView: 2,
-      spaceBetween: 20,
+      spaceBetween: 15,
     },
   }
 });
@@ -236,8 +237,9 @@ if (loop) {
         spaceBetween: 10,
       },
       768: {
-        slidesPerView: 4,
-        spaceBetween: 40,
+        slidesPerView: 'auto',
+        centeredSlides: false,
+        spaceBetween: 20,
       },
       1024: {
         slidesPerView: 'auto',
@@ -288,7 +290,11 @@ for (const callBtn of callBtns) {
   callBtn.addEventListener('click', function() {
     callModal.classList.add('active');
     overlay.classList.add('active');
-    qeoModal.classList.remove('active')
+    qeoModal.classList.remove('active');
+
+    mobMenu.classList.remove('active');
+    burger.classList.remove('active');
+    body.classList.remove('fixed');
   })
 }
 
@@ -601,18 +607,29 @@ function initMobilesliders() {
 
 
 
+const burger = document.querySelector('.mobile-burger');
+const mobMenu = document.querySelector('.mob-wrapper')
+const mobMenuActive = document.querySelector('.mob-wrapper.active');
+const body = document.body;
 
+const toggleMenu = function() {
+  mobMenu.classList.toggle('active');
+  burger.classList.toggle('active');
+  body.classList.toggle('fixed');
+}
 
+burger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    toggleMenu();
+});
 
+document.addEventListener('click', function(e) {
+    const target = e.target;
+    const its_menu = target == mobMenu || mobMenu.contains(target);
+    const its_btnMenu = target == burger;
+    const menu_is_active = mobMenu.classList.contains('active');
 
-
-
-
-
-
-
-  // contactSlider.on('beforeDestroy', function () {
-  //   console.log('slide changed');
-  // });
-
-
+    if (!its_menu && !its_btnMenu && menu_is_active) {
+        toggleMenu();
+    }
+});
