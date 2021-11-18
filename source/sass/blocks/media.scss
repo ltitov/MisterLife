@@ -4657,15 +4657,20 @@
     }
 
     &__bottom {
-      flex-direction: column-reverse;
+      display: flex;
       margin-top: Min(2vw,15px);
-
-      grid-gap: 20px;
+      grid-gap: 0px;
+      flex-direction: column-reverse;
     }
 
     &__more {
       width: 49.688vw;
       height: clamp(36px, 11.250vw , 50px);
+      grid-column: 2;
+    }
+
+    &__reit {
+      margin-bottom: 20px;
     }
   }
 
@@ -5452,6 +5457,7 @@
     &__item {
       display: flex;
       flex-direction: column;
+      overflow: hidden;
     }
 
     &__map {
@@ -5676,6 +5682,7 @@
         "head value"
         "sub-head value";
         padding: 12px 16px;
+        height: Min(14.688vw,64px);
     }
 
     &__list {

@@ -246,3 +246,15 @@
     margin-top: 4%;
   }
 }
+
+
+@media (min-width: 991px) and (max-width: 1024px) {
+  .header-select .select__wrapp {
+    grid-gap: 5px;
+  }
+
+  .header-select .select__item {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+}

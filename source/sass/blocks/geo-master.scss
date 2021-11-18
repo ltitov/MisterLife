@@ -178,3 +178,10 @@
     }
   }
 }
+
+
+.order-master {
+  .order-master__button:nth-child(2) {
+    display: none;
+  }
+}

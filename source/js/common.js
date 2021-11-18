@@ -462,7 +462,7 @@ const contactSliderContainer = document.querySelector('.contact-first__slider');
 const centerSliderContainer = document.querySelector('.center-sec__mobile-wrapper');
 
 const modalButtonOrder = document.querySelector('.order-master__button');
-const modalButtonNewWrapper = document.querySelector('.price-sec__inner');
+const modalButtonNewWrapper = document.querySelector('.mobile-replace-wrapper');
 const modalButtonOldWrapper = document.querySelector('.order-master');
 
 function replaceRoster(){

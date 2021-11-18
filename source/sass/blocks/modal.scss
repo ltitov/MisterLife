@@ -745,8 +745,14 @@
   }
 
   .caption-inner {
-    top: Max(70vw,96vw);
+    top: initial;
+    transform: translateY(0) translateX(-50%);
     padding: 15px 20px;
+    bottom: clamp(12%,-20%,30px);
+  }
+
+  .fixed-size img.lg-image {
+
   }
 }
 
